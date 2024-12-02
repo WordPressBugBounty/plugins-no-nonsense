@@ -3,7 +3,7 @@
 Plugin Name: No Nonsense
 Plugin URI: https://nononsensewp.com
 Description: The fastest, cleanest way to get rid of the parts of WordPress you don't need.
-Version: 3.5.0.1
+Version: 3.5.0.2
 Author: Room 34 Creative Services, LLC
 Author URI: https://room34.com
 License: GPLv2
@@ -32,7 +32,7 @@ if (!defined('ABSPATH')) { exit; }
 
 
 // Silently kill any XML-RPC request ASAP, if "Also kill any incoming XML-RPC request" is set
-if (defined('XMLRPC_REQUEST') && XMLRPC_REQUEST) {
+if (defined('XMLRPC_REQUEST') && XMLRPC_REQUEST && get_option('r34nono_xmlrpc_disabled')) {
 	$r34nono_xmlrpc_disabled_options = get_option('r34nono_xmlrpc_disabled_options');
 	if (is_array($r34nono_xmlrpc_disabled_options) && !empty($r34nono_xmlrpc_disabled_options['kill_requests'])) {
 		status_header(403); exit;

@@ -5,7 +5,7 @@ Tags: remove howdy, remove emoji, remove comments, remove xml-rpc, remove WordPr
 Requires at least: 4.9
 Requires PHP: 7.0.0
 Tested up to: 6.7
-Stable tag: 3.5.0.1
+Stable tag: 3.5.0.2
 License: GPLv2
 
 The fastest, cleanest way to get rid of the parts of WordPress you don't need.
@@ -25,6 +25,10 @@ After installing the plugin, navigate to **Settings &gt; No Nonsense** to choose
 == Screenshots ==
 
 == Changelog ==
+
+= 3.5.0.2 - 2024.12.02 =
+
+* Modified conditional so **Also kill any incoming XML-RPC request** only applies if **Disable XML-RPC** is checked. _Unchecking a top-level setting does not automatically reset its sub-settings. This is by design, so previous sub-settings are "remembered" if a setting is turned back on. In all other cases within the plugin, those sub-settings are contained within hooked functions that don't run anyway unless the top-level setting is turned on. The XML-RPC logic needs to run earlier, outside of a hooked function, and as a result it needed this extra conditional._
 
 = 3.5.0.1 - 2024.12.02 =
 
