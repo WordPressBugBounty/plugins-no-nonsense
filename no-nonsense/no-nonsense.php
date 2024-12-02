@@ -3,7 +3,7 @@
 Plugin Name: No Nonsense
 Plugin URI: https://nononsensewp.com
 Description: The fastest, cleanest way to get rid of the parts of WordPress you don't need.
-Version: 3.5.0.2
+Version: 3.5.1
 Author: Room 34 Creative Services, LLC
 Author URI: https://room34.com
 License: GPLv2
@@ -59,6 +59,20 @@ function r34nono_plugins_loaded() {
 add_action('plugins_loaded', 'r34nono_plugins_loaded');
 
 
+// Load text domain for translations
+/**
+ * Note: We are loading this absolutely as early as possible to avoid WP 6.7 warnings.
+ * Embedded ACF PRO must load AFTER translations; it is now loading on 'init' with
+ * priority 2 - PHP_INT_MAX which appears to be early enough for it to function properly;
+ * translations are loading on 'init' with priority 1 - PHP_INT_MAX.
+ */
+function r34nono_load_plugin_textdomain() {
+	load_plugin_textdomain('no-nonsense', false, basename(plugin_dir_path(__FILE__)) . '/i18n/languages/');
+}
+add_action('plugins_loaded', 'r34nono_load_plugin_textdomain');
+add_action('init', 'r34nono_load_plugin_textdomain', 1 - PHP_INT_MAX);
+
+
 // Install
 function r34nono_install() {
 	global $r34nono;
@@ -78,7 +92,7 @@ function r34nono_install() {
 	// Admin notice with link to settings
 	$notices = get_option('r34nono_deferred_admin_notices', array());
 	$notices[] = array(
-		'content' => '<p>' . sprintf(__('Thank you for installing %1$sNo Nonsense%2$s. To get started, please visit the %3$sSettings%4$s page.'), '<strong>', '</strong>', '<a href="' . admin_url('options-general.php?page=no-nonsense') . '"><strong>', '</strong></a>') . '</p>',
+		'content' => '<p>' . sprintf(__('Thank you for installing %1$s. To get started, please visit the %2$sSettings%3$s page.', 'no-nonsense'), '<strong>No Nonsense</strong>', '<a href="' . admin_url('options-general.php?page=no-nonsense') . '"><strong>', '</strong></a>') . '</p>',
 		'status' => 'info'
 	);
 	update_option('r34nono_deferred_admin_notices', $notices);

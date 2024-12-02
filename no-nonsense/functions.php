@@ -503,7 +503,10 @@ function r34nono_disable_all_comments_and_trackbacks() {
 
 function r34nono_remove_default_tagline() {
 	$return = false;
-	if (get_option('blogdescription') == __('Just another WordPress site', 'no-nonsense')) {
+	if (
+		get_option('blogdescription') == __('Just another WordPress site', 'no-nonsense') ||
+		get_option('blogdescription') == __('Just another WordPress site') // @todo Do we need this?
+	) {
 		if (update_option('blogdescription', '')) { $return = true; }
 	}
 	return $return;

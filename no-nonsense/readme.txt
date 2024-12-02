@@ -5,7 +5,7 @@ Tags: remove howdy, remove emoji, remove comments, remove xml-rpc, remove WordPr
 Requires at least: 4.9
 Requires PHP: 7.0.0
 Tested up to: 6.7
-Stable tag: 3.5.0.2
+Stable tag: 3.5.1
 License: GPLv2
 
 The fastest, cleanest way to get rid of the parts of WordPress you don't need.
@@ -25,6 +25,20 @@ After installing the plugin, navigate to **Settings &gt; No Nonsense** to choose
 == Screenshots ==
 
 == Changelog ==
+
+= 3.5.1 - 2024.12.02 =
+
+* Deferred all text translations that previously loaded on the `plugins_loaded` hook, to prevent `_load_textdomain_just_in_time`-related notices after changes in WordPres 6.7:
+  * Restructured `R34NoNo::settings` array to put all translation strings into a deferred method that only loads on the No Nonsense admin page, which also eliminates unnecessary translation processing.
+  * Removed the unused `R34NoNo::functions` property and replaced `R34NoNo::utilities` with an array that is only defined when the admin page is being loaded, since the information is only needed on that page.
+* Added conditional to check for `is_plugin_active()` function before defining plugin-specific settings. (This had not previously revealed itself to be an issue, because the `R34NoNo::_get_version()` method already loads the `wp-admin/includes/plugin.php` file. This change alleviates the unintended dependence on that method.)
+* i18n:
+	* Updated `no-nonsense.pot` file with new translation strings.
+  * Removed the plugin name "No Nonsense" from translatable text.
+  * Added embedded translation files for German (Germany, Austria, Switzerland) and Dutch (Netherlands, Belgium).
+* Hotfix: Added workaround for version number not updating after change to initialization hook.
+
+_Note: If your locale is set to Germany or the Netherlands, the incomplete, community-translated files for these languages may load instead of the ones embedded in the plugin, or the plugin's versions may get replaced by the community versions if you click **Update Translations** on the Updates page. Manually deleting the No Nonsense-related files from `wp-content/languages/plugins` will revert to using the plugin-embedded versions. We are currently investigating the issue._
 
 = 3.5.0.2 - 2024.12.02 =
 

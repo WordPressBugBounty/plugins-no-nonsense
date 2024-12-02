@@ -137,7 +137,7 @@ global $r34nono;
 							<table class="form-table r34nono-utilities-table"><tbody>
 					
 								<?php
-								foreach ((array)$r34nono->utilities as $name => $item) {
+								foreach ((array)$r34nono_utilities as $name => $item) {
 									if (empty($item['show_in_admin'])) { continue; }
 									?>
 									<tr>

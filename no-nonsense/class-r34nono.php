@@ -5,376 +5,286 @@ if (!defined('ABSPATH')) { exit; }
 
 class R34NoNo {
 
+
 	const NAME = 'No Nonsense';
 	public $version = '';
-	
-	public $functions = array();
-	public $settings = array();
-	public $utilities = array();
+
+	public $settings = array(
+
+		'r34nono_admin_bar_logout_link' => array(
+			'hook_type' => 'action',
+			'hook' => 'init',
+			'priority' => 10,
+			'pn' => 0,
+			'show_in_admin' => true,
+		),
+		
+		'r34nono_auto_core_update_send_email_only_on_error' => array(
+			'hook_type' => 'filter',
+			'hook' => 'auto_core_update_send_email',
+			'priority' => 10,
+			'pn' => 4,
+			'show_in_admin' => true,
+		),
+		
+		'r34nono_disable_author_archives' => array(
+			'hook_type' => 'action',
+			'hook' => 'init',
+			'priority' => 10,
+			'pn' => 0,
+			'show_in_admin' => true,
+		),
+		
+		'r34nono_disable_site_search' => array(
+			'hook_type' => 'action',
+			'hook' => 'init',
+			'priority' => 10,
+			'pn' => 0,
+			'show_in_admin' => true,
+		),
+		
+		'r34nono_disallow_full_site_editing' => array(
+			'hook_type' => 'action',
+			'hook' => 'init',
+			'priority' => 10,
+			'pn' => 0,
+			'show_in_admin' => true,
+		),
+		
+		'r34nono_hide_admin_bar_for_logged_in_non_editors' => array(
+			'hook_type' => 'action',
+			'hook' => 'init',
+			'priority' => 10,
+			'pn' => 0,
+			'show_in_admin' => true,
+		),
+		
+		'r34nono_limit_admin_elements_for_logged_in_non_editors' => array(
+			'hook_type' => 'action',
+			'hook' => 'admin_menu',
+			'priority' => 11,
+			'pn' => 0,
+			'show_in_admin' => true,
+		),
+		
+		'r34nono_login_replace_wp_logo_link' => array(
+			'hook_type' => 'action',
+			'hook' => 'login_enqueue_scripts',
+			'priority' => 10,
+			'pn' => 0,
+			'show_in_admin' => true,
+		),
+
+		'r34nono_prevent_block_directory_access' => array(
+			'hook_type' => 'action',
+			'hook' => 'admin_init',
+			'priority' => 9,
+			'pn' => 0,
+			'show_in_admin' => true,
+		),
+		
+		'r34nono_redirect_admin_to_homepage_for_logged_in_non_editors' => array(
+			'options' => array(
+				'prevent_profile_access' => '',
+			),
+			'hook_type' => 'action',
+			'hook' => 'admin_init',
+			'priority' => 10,
+			'pn' => 0,
+			'show_in_admin' => true,
+		),
+
+		'r34nono_remove_admin_color_scheme_picker' => array(
+			'hook_type' => 'action',
+			'hook' => 'admin_init',
+			'priority' => 10,
+			'pn' => 0,
+			'show_in_admin' => true,
+		),
+		
+		'r34nono_remove_admin_email_check_interval' => array(
+			'hook_type' => 'filter',
+			'hook' => 'admin_email_check_interval',
+			'priority' => 10,
+			'pn' => 0,
+			'cb' => '__return_false',
+			'show_in_admin' => true,
+		),
+
+		'r34nono_remove_admin_wp_logo' => array(
+			'hook_type' => 'action',
+			'hook' => 'admin_bar_menu',
+			'priority' => 11,
+			'pn' => 1,
+			'show_in_admin' => true,
+		),
+
+		'r34nono_remove_attachment_pages' => array(
+			'options' => array(
+				'attachment_page_404' => '',
+			),
+			'hook_type' => 'action',
+			'hook' => 'template_redirect',
+			'priority' => 10,
+			'pn' => 0,
+			'show_in_admin' => true,
+		),
+
+		'r34nono_remove_comments_from_admin' => array(
+			'hook_type' => 'action',
+			'hook' => 'init',
+			'priority' => 10,
+			'pn' => 0,
+			'show_in_admin' => true,
+		),
+		
+		'r34nono_remove_comments_from_front_end' => array(
+			'hook_type' => 'filter',
+			'hook' => 'init',
+			'priority' => 10,
+			'pn' => 0,
+			'show_in_admin' => true,
+		),
+		
+		'r34nono_remove_dashboard_widgets' => array(
+			'options' => array(
+				'dashboard_activity' => '',
+				'dashboard_right_now' => '',
+				'dashboard_incoming_links' => '',
+				'dashboard_plugins' => '',
+				'dashboard_quick_press' => '',
+				'dashboard_recent_comments' => '',
+				'dashboard_recent_drafts' => '',
+				'dashboard_site_health' => '',
+				'welcome_panel' => '',
+				'dashboard_primary' => '',
+			),
+			'hook_type' => 'action',
+			'hook' => 'admin_init',
+			'priority' => 10,
+			'pn' => 0,
+			'show_in_admin' => true,
+		),
+		
+		'r34nono_remove_default_block_patterns' => array(
+			'hook_type' => 'action',
+			'hook' => 'init',
+			'priority' => 9,
+			'pn' => 0,
+			'show_in_admin' => true,
+		),
+		
+		'r34nono_remove_duotone_svg_filters' => array(
+			'hook_type' => 'action',
+			'hook' => 'after_setup_theme',
+			'priority' => 10,
+			'pn' => 0,
+			'show_in_admin' => true,
+		),
+		
+		'r34nono_remove_edit_site' => array(
+			'hook_type' => 'action',
+			'hook' => 'admin_bar_menu',
+			'priority' => 999,
+			'pn' => 1,
+			'show_in_admin' => true,
+		),
+
+		'r34nono_remove_head_tags' => array(
+			'options' => array(
+				'rsd_link' => '',
+				'oembed_linktypes' => '',
+				'resource_hints' => '',
+				'rest_output_link_wp_head' => '',
+				'feed_links' => '',
+				'wlwmanifest_link' => '',
+				'wp_generator' => '',
+				'wp_shortlink_wp_head' => '',
+			),
+			'hook_type' => 'action',
+			'hook' => 'init',
+			'priority' => 10,
+			'pn' => 0,
+			'show_in_admin' => true,
+		),
+		
+		'r34nono_remove_front_end_edit_links' => array(
+			'hook_type' => 'filter',
+			'hook' => 'edit_post_link',
+			'priority' => 10,
+			'pn' => 0,
+			'cb' => '__return_false',
+			'show_in_admin' => true,
+		),
+
+		'r34nono_remove_global_styles' => array(
+			'hook_type' => 'action',
+			'hook' => 'wp_enqueue_scripts',
+			'priority' => 10,
+			'pn' => 1,
+			'show_in_admin' => true,
+		),
+
+		'r34nono_remove_howdy' => array(
+			'hook_type' => 'action',
+			'hook' => 'admin_bar_menu',
+			'priority' => PHP_INT_MAX - 100,
+			'pn' => 1,
+			'show_in_admin' => true,
+		),
+
+		'r34nono_remove_posts_from_admin' => array(
+			'hook_type' => 'action',
+			'hook' => 'init',
+			'priority' => 10,
+			'pn' => 0,
+			'show_in_admin' => true,
+		),
+		
+		'r34nono_remove_widgets_block_editor' => array(
+			'hook_type' => 'action',
+			'hook' => 'after_setup_theme',
+			'priority' => 10,
+			'pn' => 0,
+			'show_in_admin' => true,
+		),
+
+		'r34nono_remove_wp_emoji' => array(
+			'hook_type' => 'action',
+			'hook' => 'init',
+			'priority' => 10,
+			'pn' => 0,
+			'show_in_admin' => true,
+		),
+
+		'r34nono_xmlrpc_disabled' => array(
+			'options' => array(
+				'kill_requests' => '',
+			),
+			'hook_type' => 'action',
+			'hook' => 'plugins_loaded',
+			'priority' => 11,
+			'pn' => 0,
+			'show_in_admin' => true,
+		),
+
+	);
+
 
 	public function __construct() {
 
 		// Set version
 		$this->version = $this->_get_version();
 	
-		// Settings details
-		$this->settings = array(
-
-			'r34nono_admin_bar_logout_link' => array(
-				'title' => __('Admin bar logout link', 'no-nonsense'),
-				'description' => __('Adds a color-highlighted logout link directly into the admin bar, next to the username. Helpful to remind users to log out when their session is done.', 'no-nonsense'),
-				'hook_type' => 'action',
-				'hook' => 'init',
-				'priority' => 10,
-				'pn' => 0,
-				'group' => __('Admin Bar', 'no-nonsense'),
-				'show_in_admin' => true,
-			),
-			
-			'r34nono_auto_core_update_send_email_only_on_error' => array(
-				'title' => __('Auto core update send email only on error', 'no-nonsense'),
-				'description' => __('By default, site admins receive a notification email every time WordPress runs auto-updates. Turn this on to only receive emails if there is an error during the update process.', 'no-nonsense'),
-				'hook_type' => 'filter',
-				'hook' => 'auto_core_update_send_email',
-				'priority' => 10,
-				'pn' => 4,
-				'group' => __('Security and Updates', 'no-nonsense'),
-				'show_in_admin' => true,
-			),
-			
-			'r34nono_disable_author_archives' => array(
-				'title' => __('Disable author archives', 'no-nonsense'),
-				'description' => __('Many sites have no need for the auto-generated author archive pages, and many site admins may not even realize these pages exist, yet they can be crawled by search engines. Turn on this option to disable the author archive pages.', 'no-nonsense'),
-				'hook_type' => 'action',
-				'hook' => 'init',
-				'priority' => 10,
-				'pn' => 0,
-				'group' => __('Front End', 'no-nonsense'),
-				'show_in_admin' => true,
-			),
-			
-			'r34nono_disable_site_search' => array(
-				'title' => __('Disable site search', 'no-nonsense'),
-				'description' => __('If your site does not need search functionality, turn this on to cause all standard WordPress search URLs to redirect to the home page without performing a search. Does not affect admin search functionality. Also deregisters the search widget.', 'no-nonsense'),
-				'hook_type' => 'action',
-				'hook' => 'init',
-				'priority' => 10,
-				'pn' => 0,
-				'group' => __('Front End', 'no-nonsense'),
-				'show_in_admin' => true,
-			),
-			
-			'r34nono_disallow_full_site_editing' => array(
-				'title' => __('Disallow full site editing (FSE)', 'no-nonsense'),
-				'description' => sprintf(__('Removes the "Edit site" link in the admin bar, the "Editor" link under "Appearance," and the FSE notice in the Customizer. Also redirects any direct attempts to access the FSE page to the admin dashboard. If this option is active, you do not need to use the %1$sRemove "Edit site" link%2$s option under "Admin Bar."', 'no-nonsense'), '<strong>', '</strong>'),
-				'hook_type' => 'action',
-				'hook' => 'init',
-				'priority' => 10,
-				'pn' => 0,
-				'group' => __('Block Editor', 'no-nonsense'),
-				'show_in_admin' => true,
-			),
-			
-			'r34nono_hide_admin_bar_for_logged_in_non_editors' => array(
-				'title' => __('Hide admin bar for logged-in non-editors', 'no-nonsense'),
-				'description' => sprintf(__('Hides the admin bar on front-end pages for logged-in users with no editing capabilities. Admin bar will still display for these users when they access their profile page. %1$sNote:%2$s With this option turned on, you will need to provide another way on the front end of your site for logged-in users to access their profile page and the logout link.', 'no-nonsense'), '<strong>', '</strong>'),
-				'hook_type' => 'action',
-				'hook' => 'init',
-				'priority' => 10,
-				'pn' => 0,
-				'group' => __('Admin Bar', 'no-nonsense'),
-				'show_in_admin' => true,
-			),
-			
-			'r34nono_limit_admin_elements_for_logged_in_non_editors' => array(
-				'title' => __('Limit admin elements for logged-in non-editors', 'no-nonsense'),
-				'description' => __('Hides parts of the admin sidebar menu and WordPress footer from logged-in users with no editing capabilities.', 'no-nonsense'),
-				'hook_type' => 'action',
-				'hook' => 'admin_menu',
-				'priority' => 11,
-				'pn' => 0,
-				'group' => __('Admin Access', 'no-nonsense'),
-				'show_in_admin' => true,
-			),
-			
-			'r34nono_login_replace_wp_logo_link' => array(
-				'title' => __('Replace WP logo with site icon on login screen', 'no-nonsense'),
-				'description' => __('Replaces the WordPress logo and link on the login screen with the designated site icon (if set) and site link. If no icon is present, the WP logo and link are simply removed.', 'no-nonsense'),
-				'hook_type' => 'action',
-				'hook' => 'login_enqueue_scripts',
-				'priority' => 10,
-				'pn' => 0,
-				'group' => __('Login', 'no-nonsense'),
-				'show_in_admin' => true,
-			),
-
-			'r34nono_prevent_block_directory_access' => array(
-				'title' => __('Prevent block directory access', 'no-nonsense'),
-				'description' => sprintf(__('Removes the directory for installing new blocks when searching for blocks in the block editor sidebar.', 'no-nonsense'), '<strong>', '</strong>'),
-				'hook_type' => 'action',
-				'hook' => 'admin_init',
-				'priority' => 9,
-				'pn' => 0,
-				'group' => __('Block Editor', 'no-nonsense'),
-				'show_in_admin' => true,
-			),
-			
-			'r34nono_redirect_admin_to_homepage_for_logged_in_non_editors' => array(
-				'title' => __('Redirect admin to home page for logged-in non-editors', 'no-nonsense'),
-				'description' => __('Logged-in users with no editing capabilities (e.g. Subscribers) will be redirected to the site home page if they try to access any admin pages, other than their own profile page.', 'no-nonsense'),
-				'options' => array(
-					'prevent_profile_access' => __('Also prevent access to profile screen', 'no-nonsense'),
-				),
-				'hook_type' => 'action',
-				'hook' => 'admin_init',
-				'priority' => 10,
-				'pn' => 0,
-				'group' => __('Admin Access', 'no-nonsense'),
-				'show_in_admin' => true,
-			),
-
-			'r34nono_remove_admin_color_scheme_picker' => array(
-				'title' => __('Remove admin color scheme picker', 'no-nonsense'),
-				'description' => __('Removes the color scheme picker from the user profile page.', 'no-nonsense'),
-				'hook_type' => 'action',
-				'hook' => 'admin_init',
-				'priority' => 10,
-				'pn' => 0,
-				'group' => __('Admin Features', 'no-nonsense'),
-				'show_in_admin' => true,
-			),
-			
-			'r34nono_remove_admin_email_check_interval' => array(
-				'title' => __('Remove admin email check interval', 'no-nonsense'),
-				'description' => __('Skips the periodic verification of admin email address upon login.', 'no-nonsense'),
-				'hook_type' => 'filter',
-				'hook' => 'admin_email_check_interval',
-				'priority' => 10,
-				'pn' => 0,
-				'cb' => '__return_false',
-				'group' => __('Login', 'no-nonsense'),
-				'show_in_admin' => true,
-			),
-
-			'r34nono_remove_admin_wp_logo' => array(
-				'title' => __('Remove admin bar WordPress logo', 'no-nonsense'),
-				'description' => __('Removes WordPress icon and link from the admin bar.', 'no-nonsense'),
-				'hook_type' => 'action',
-				'hook' => 'admin_bar_menu',
-				'priority' => 11,
-				'pn' => 1,
-				'group' => __('Admin Bar', 'no-nonsense'),
-				'show_in_admin' => true,
-			),
-
-			'r34nono_remove_attachment_pages' => array(
-				'title' => __('Redirect attachment pages to file URL', 'no-nonsense'),
-				'description' => __('By default, WordPress creates an "attachment page" for every file uploaded to the Media Library. This setting will redirect those pages to the file URL itself.', 'no-nonsense'),
-				'options' => array(
-					'attachment_page_404' => __('Return HTTP 404 error instead of redirecting', 'no-nonsense'),
-				),
-				'hook_type' => 'action',
-				'hook' => 'template_redirect',
-				'priority' => 10,
-				'pn' => 0,
-				'group' => __('Front End', 'no-nonsense'),
-				'show_in_admin' => true,
-			),
-
-			'r34nono_remove_comments_from_admin' => array(
-				'title' => __('Remove Comments from admin', 'no-nonsense'),
-				'description' => sprintf(__('Removes links to Comments in the admin bar and admin sidebar menu. Does not actually deactivate comment functionality; this should be done under %1$sSettings %2$s Discussion%3$s.', 'no-nonsense'), '<a href="' . admin_url('options-discussion.php') . '" target="_blank">', '&gt;', '</a>'),
-				'hook_type' => 'action',
-				'hook' => 'init',
-				'priority' => 10,
-				'pn' => 0,
-				'group' => __('Admin Features', 'no-nonsense'),
-				'show_in_admin' => true,
-			),
-			
-			'r34nono_remove_comments_from_front_end' => array(
-				'title' => __('Remove comments from front end', 'no-nonsense'),
-				'description' => __('Removes all standard comment output from front-end pages. May not function properly if theme uses non-standard methods to display comments.', 'no-nonsense'),
-				'hook_type' => 'filter',
-				'hook' => 'init',
-				'priority' => 10,
-				'pn' => 0,
-				'group' => __('Front End', 'no-nonsense'),
-				'show_in_admin' => true,
-			),
-			
-			'r34nono_remove_dashboard_widgets' => array(
-				'title' => __('Remove Dashboard widgets', 'no-nonsense'),
-				'description' => __('Removes the selected widgets from the WordPress admin dashboard.', 'no-nonsense'),
-				'options' => array(
-					'dashboard_activity' => __('Activity', 'no-nonsense'),
-					'dashboard_right_now' => __('At a Glance', 'no-nonsense'),
-					'dashboard_incoming_links' => __('Incoming Links', 'no-nonsense'),
-					'dashboard_plugins' => __('Plugins', 'no-nonsense'),
-					'dashboard_quick_press' => __('Quick Draft', 'no-nonsense'),
-					'dashboard_recent_comments' => __('Recent Comments', 'no-nonsense'),
-					'dashboard_recent_drafts' => __('Recent Drafts', 'no-nonsense'),
-					'dashboard_site_health' => __('Site Health', 'no-nonsense'),
-					'welcome_panel' => __('Welcome', 'no-nonsense'),
-					'dashboard_primary' => __('WordPress Events and News', 'no-nonsense'),
-				),
-				'hook_type' => 'action',
-				'hook' => 'admin_init',
-				'priority' => 10,
-				'pn' => 0,
-				'group' => __('Admin Features', 'no-nonsense'),
-				'show_in_admin' => true,
-			),
-			
-			'r34nono_remove_default_block_patterns' => array(
-				'title' => __('Remove default block patterns', 'no-nonsense'),
-				'description' => sprintf(__('Removes the default block patterns from the block editor, leaving only custom block patterns defined by your theme.', 'no-nonsense'), '<strong>', '</strong>'),
-				'hook_type' => 'action',
-				'hook' => 'init',
-				'priority' => 9,
-				'pn' => 0,
-				'group' => __('Block Editor', 'no-nonsense'),
-				'show_in_admin' => true,
-			),
-			
-			'r34nono_remove_duotone_svg_filters' => array(
-				'title' => __('Remove duotone SVG filters', 'no-nonsense'),
-				'description' => __('Removes hardcoded HTML SVG tags for block editor duotone effects that normally get loaded on every page for Safari users.', 'no-nonsense'),
-				'hook_type' => 'action',
-				'hook' => 'after_setup_theme',
-				'priority' => 10,
-				'pn' => 0,
-				'group' => __('Block Editor', 'no-nonsense'),
-				'show_in_admin' => true,
-			),
-			
-			'r34nono_remove_edit_site' => array(
-				'title' => __('Remove "Edit site" link', 'no-nonsense'),
-				'description' => sprintf(__('Removes the full site editing (FSE) link that appears in the admin bar on sites that use block themes, to avoid accidentally clicking it when intending to click "Edit Page/Post," but leaves other FSE features in place. To disallow FSE entirely, select %1$sDisallow full site editing (FSE)%2$s under "Admin Features" instead.', 'no-nonsense'), '<strong>', '</strong>'),
-				'hook_type' => 'action',
-				'hook' => 'admin_bar_menu',
-				'priority' => 999,
-				'pn' => 1,
-				'group' => __('Block Editor', 'no-nonsense'),
-				'show_in_admin' => true,
-			),
-
-			'r34nono_remove_head_tags' => array(
-				'title' => __('Remove head tags', 'no-nonsense'),
-				'description' => sprintf(__('Removes the selected %1$s tags from the %2$s on all front-end pages.', 'no-nonsense'), '<code>&lt;link&gt;</code>', '<code>&lt;head&gt;</code>'),
-				'options' => array(
-					'rsd_link' => __('EditURI/RSD', 'no-nonsense'),
-					'oembed_linktypes' => __('oEmbed Discovery Links', 'no-nonsense'),
-					'resource_hints' => __('Resource Hints', 'no-nonsense'),
-					'rest_output_link_wp_head' => __('REST API', 'no-nonsense'),
-					'feed_links' => __('RSS Feeds', 'no-nonsense'),
-					'wlwmanifest_link' => __('WLW Manifest', 'no-nonsense'),
-					'wp_generator' => __('WP Generator', 'no-nonsense'),
-					'wp_shortlink_wp_head' => __('WP Shortlink', 'no-nonsense'),
-				),
-				'hook_type' => 'action',
-				'hook' => 'init',
-				'priority' => 10,
-				'pn' => 0,
-				'group' => __('Front End', 'no-nonsense'),
-				'show_in_admin' => true,
-			),
-			
-			'r34nono_remove_front_end_edit_links' => array(
-				'title' => __('Remove front end Edit links', 'no-nonsense'),
-				'description' => __('Removes Edit links that appear within the page layout of certain themes for logged-in users. Does not affect Edit links in the admin bar.', 'no-nonsense'),
-				'hook_type' => 'filter',
-				'hook' => 'edit_post_link',
-				'priority' => 10,
-				'pn' => 0,
-				'cb' => '__return_false',
-				'group' => __('Front End', 'no-nonsense'),
-				'show_in_admin' => true,
-			),
-
-			'r34nono_remove_global_styles' => array(
-				'title' => __('Remove global styles (inline CSS)', 'no-nonsense'),
-				'description' => sprintf(__('Removes inline CSS the Block Editor inserts into the head of every page. Note that this may not remove %1$sall%2$s inline CSS; styles inserted by your theme or plugins will still be present.', 'no-nonsense'), '<em>', '</em>'),
-				'hook_type' => 'action',
-				'hook' => 'wp_enqueue_scripts',
-				'priority' => 10,
-				'pn' => 1,
-				'group' => __('Block Editor', 'no-nonsense'),
-				'show_in_admin' => true,
-			),
-
-			'r34nono_remove_howdy' => array(
-				'title' => __('Remove "Howdy"', 'no-nonsense'),
-				'description' => __('Removes "Howdy" greeting text (or the corresponding text in other languages) next to username in admin bar.', 'no-nonsense'),
-				'hook_type' => 'action',
-				'hook' => 'admin_bar_menu',
-				'priority' => PHP_INT_MAX - 100,
-				'pn' => 1,
-				'group' => __('Admin Bar', 'no-nonsense'),
-				'show_in_admin' => true,
-			),
-
-			'r34nono_remove_posts_from_admin' => array(
-				'title' => __('Remove Posts from admin', 'no-nonsense'),
-				'description' => sprintf(__('If you use WordPress as a general-purpose CMS without a blog component, this option will hide the Posts link in the main admin navigation. It does %1$snot%2$s deactivate the "Posts" post type itself, nor restrict any front-end content. If you are using an SEO plugin, you will need to adjust its settings to exclude Posts from your sitemap XML.', 'no-nonsense'), '<strong>', '</strong>'),
-				'hook_type' => 'action',
-				'hook' => 'init',
-				'priority' => 10,
-				'pn' => 0,
-				'group' => __('Admin Features', 'no-nonsense'),
-				'show_in_admin' => true,
-			),
-			
-			'r34nono_remove_widgets_block_editor' => array(
-				'title' => __('Remove Widgets block editor', 'no-nonsense'),
-				'description' => __('Restores the previous default functionality of the Widgets page.', 'no-nonsense'),
-				'hook_type' => 'action',
-				'hook' => 'after_setup_theme',
-				'priority' => 10,
-				'pn' => 0,
-				'group' => __('Block Editor', 'no-nonsense'),
-				'show_in_admin' => true,
-			),
-
-			'r34nono_remove_wp_emoji' => array(
-				'title' => __('Remove WP emoji', 'no-nonsense'),
-				'description' => __('Removes built-in emoji-related WordPress JavaScript code that normally gets loaded on every page. Also removes emoji tools in the TinyMCE editor.', 'no-nonsense'),
-				'hook_type' => 'action',
-				'hook' => 'init',
-				'priority' => 10,
-				'pn' => 0,
-				'group' => __('Front End', 'no-nonsense'),
-				'show_in_admin' => true,
-			),
-
-			'r34nono_xmlrpc_disabled' => array(
-				'title' => __('Disable XML-RPC', 'no-nonsense'),
-				'description' => sprintf(__('Most WordPress sites do not use XML-RPC, although some plugins (e.g. Jetpack) and mobile applications may require it. Per changes in WordPress 3.5, turning this option on will only disable XML-RPC requests that require authentication. Use the %1$sAlso kill any incoming XML-RPC request%2$s option below to cause all incoming XML-RPC requests to exit early. (Note: Because this is a plugin-based solution, XML-RPC requests still must partially load, to the point where this plugin is active, before it can kill the process. For better performance during a DDOS attack, you may wish to block calls to %3$s directly in your site&rsquo;s %4$s file.', 'no-nonsense'), '<strong>', '</strong>', '<code>xmlrpc.php</code>', '<code>.htaccess</code>'),
-				'hook_type' => 'action',
-				'hook' => 'plugins_loaded',
-				'options' => array(
-					'kill_requests' => __('Also kill any incoming XML-RPC request', 'no-nonsense'),
-				),
-				'priority' => 11,
-				'pn' => 0,
-				'group' => __('Security and Updates', 'no-nonsense'),
-				'show_in_admin' => true,
-			),
-
-		);
-		
 		// Conditional settings
 		
 		// Don't show if constant is already set in wp-config.php
 		if (!defined('CORE_UPGRADE_SKIP_NEW_BUNDLED')) {
 			$this->settings['r34nono_core_upgrade_skip_new_bundled'] = array(
-				'title' => __('Core upgrade skip new bundled', 'no-nonsense'),
-				'description' => sprintf(__('Skips installing things like new themes that are bundled by default with WordPress core upgrades. This can also be handled manually by adding the %1$sCORE_UPGRADE_SKIP_NEW_BUNDLED%2$s constant in your %3$swp-config.php%4$s file.', 'no-nonsense'), '<code>', '</code>', '<code>', '</code>'),
 				'hook_type' => 'action',
 				'hook' => 'init',
 				'priority' => 10,
 				'pn' => 0,
-				'group' => __('Security and Updates', 'no-nonsense'),
 				'show_in_admin' => true,
 			);
 		}
@@ -382,30 +292,27 @@ class R34NoNo {
 		// Don't show if constant is already set in wp-config.php
 		if (!defined('DISALLOW_FILE_EDIT')) {
 			$this->settings['r34nono_disallow_file_edit'] = array(
-				'title' => __('Disallow theme and plugin file editing', 'no-nonsense'),
-				'description' => __('Removes the ability for site admins to edit theme and plugin files directly within WordPress.', 'no-nonsense'),
 				'hook_type' => 'action',
 				'hook' => 'init',
 				'priority' => 10,
 				'pn' => 0,
-				'group' => __('Admin Features', 'no-nonsense'),
 				'show_in_admin' => true,
 			);
 		}
 		
 		// Plugin-specific settings
-		
+		if (!function_exists('is_plugin_active')) {
+			require_once(ABSPATH . 'wp-admin/includes/plugin.php');
+		}
+	
 		// Jetpack
 		if (is_plugin_active('jetpack/jetpack.php')) {
 		
 			$this->settings['r34nono_plugins_jetpack_restrict_admin_access'] = array(
-				'title' => 'Jetpack: ' . __('Restrict admin access', 'no-nonsense'), // Don't translate plugin name
-				'description' => __('If checked, only users with Editor or Administrator role will be able to see the Jetpack link in the admin sidebar. Note that in some cases this might not restrict access to the pages themselves, if the user knows the URL.', 'no-nonsense'),
 				'hook_type' => 'action',
 				'hook' => 'admin_menu',
 				'priority' => PHP_INT_MAX - 1,
 				'pn' => 0,
-				'group' => __('Plugins', 'no-nonsense'),
 				'show_in_admin' => true,
 			);
 			
@@ -432,9 +339,102 @@ class R34NoNo {
 			asort($this->settings['r34nono_remove_dashboard_widgets']['options']);
 			
 		}
+			
+		// Admin colors CSS variables (used on admin page and logout button)
+		add_action('admin_head', 'r34nono_admin_colors_css_variables');
+	
+		// Admin page
+		add_action('admin_menu', array(&$this, 'admin_page'));
+
+		// Enqueue admin scripts
+		add_action('admin_enqueue_scripts', array(&$this, 'admin_enqueue_scripts'));
 		
-		// Utility details
-		$this->utilities = array(
+		// Enqueue front-end scripts
+		add_action('wp_enqueue_scripts', array(&$this, 'enqueue_scripts'));
+		
+		// Add our hooks, allowing plugins/theme to modify first
+		add_action('after_setup_theme', array(&$this, 'add_hooks'), 9);
+		
+		// Add plugin action links
+		add_filter('plugin_action_links_no-nonsense/no-nonsense.php', array($this, 'admin_plugin_action_links'));
+	
+	}
+
+	
+	public function add_hooks() {
+
+		// Allow developers to extend/modify the array of settings
+		$this->settings = apply_filters('r34nono_define_settings_array', $this->settings);
+		
+		// Add hooks based on settings
+		if (is_array($this->settings) && count($this->settings) > 0) {
+			foreach ((array)$this->settings as $name => $item) {
+				$function = !empty($item['cb']) ? $item['cb'] : $name;
+				if (!empty(get_option($name)) && function_exists($function)) {
+					if ($item['hook_type'] == 'filter') {
+						add_filter(
+							htmlspecialchars($item['hook']),
+							htmlspecialchars($function),
+							intval($item['priority']),
+							intval($item['pn'])
+						);
+					}
+					else {
+						add_action(
+							htmlspecialchars($item['hook']),
+							htmlspecialchars($function),
+							intval($item['priority']),
+							intval($item['pn'])
+						);
+					}
+				}
+			}
+		}
+		
+	}
+
+	
+	public function admin_page() {
+		add_options_page(
+			'No Nonsense',
+			'No Nonsense',
+			'manage_options',
+			'no-nonsense',
+			array(&$this, 'admin_page_callback'),
+			34
+		);
+	}
+	
+
+	public function admin_plugin_action_links($links) {
+			array_unshift(
+				$links,
+				'<a href="' . admin_url('options-general.php?page=no-nonsense') . '/">' . __('Settings', 'no-nonsense') . '</a>'
+			);
+			return $links;
+	}
+	
+
+	public function admin_enqueue_scripts() {
+		wp_enqueue_script('r34nono-admin', plugin_dir_url(__FILE__) . 'assets/admin-script-min.js', array('jquery'), get_option('r34nono_version'));
+		wp_enqueue_style('r34nono-admin-style', plugin_dir_url(__FILE__) . 'assets/admin-style-min.css', false, get_option('r34nono_version'));
+		wp_enqueue_style('r34nono-admin-bar-style', plugin_dir_url(__FILE__) . 'assets/admin-bar-min.css', false, get_option('r34nono_version'));
+	}
+
+
+	public function admin_page_callback() {
+	
+		// Update version
+		if (isset($this->version)) {
+			update_option('r34nono_version', $this->version);
+		}
+
+		// Append settings translation strings
+		// We only do this here because this is the only place the strings are actually needed
+		$this->_append_settings_translation_strings();
+
+		// We define the utilities here so we don't have to worry about WP 6.7 _load_textdomain_just_in_time notices
+		$r34nono_utilities = array(
 
 			'r34nono_deactivate_and_delete_akismet' => array(
 				'title' => __('Deactivate and delete Akismet Anti-Spam plugin', 'no-nonsense'),
@@ -479,105 +479,26 @@ class R34NoNo {
 		
 		// Don't show if on Multisite, because inactive themes may be in use on other sites in the network
 		if (!defined('WP_ALLOW_MULTISITE') || WP_ALLOW_MULTISITE == false) {
-			$this->utilities['r34nono_delete_inactive_themes'] = array(
+			$r34nono_utilities['r34nono_delete_inactive_themes'] = array(
 				'title' => __('Delete inactive themes', 'no-nonsense'),
 				'description' => sprintf(__('Deletes all installed themes except the currently active theme. If your site will be using a custom theme, be sure to activate it prior to running this utility. If the current theme is a child theme, its parent theme will not be deleted. %1$sWARNING:%2$s WordPress Site Health recommends keeping at least one default theme installed. If you wish to follow the recommendation, be sure to reinstall the default theme of your choice after running this utility.', 'no-nonsense'), '<br /><br /><strong style="color: var(--r34nono-accent-color-1);">', '</strong>'),
 				'show_in_admin' => true,
 				'has_warning' => true,
 			);
-		}
-		
-		// Admin colors CSS variables (used on admin page and logout button)
-		add_action('admin_head', 'r34nono_admin_colors_css_variables');
-	
-		// Admin page
-		add_action('admin_menu', array(&$this, 'admin_page'));
-
-		// Enqueue admin scripts
-		add_action('admin_enqueue_scripts', array(&$this, 'admin_enqueue_scripts'));
-		
-		// Enqueue front-end scripts
-		add_action('wp_enqueue_scripts', array(&$this, 'enqueue_scripts'));
-		
-		// Add our hooks, allowing plugins/theme to modify first
-		add_action('after_setup_theme', array(&$this, 'add_hooks'), 9);
-		
-		// Add plugin action links
-		add_filter('plugin_action_links_no-nonsense/no-nonsense.php', array($this, 'admin_plugin_action_links'));
-	
-	}
-	
-	public function add_hooks() {
-
-		// Allow developers to extend/modify the array of settings
-		$this->settings = apply_filters('r34nono_define_settings_array', $this->settings);
-		
-		// Add hooks based on settings
-		if (is_array($this->settings) && count($this->settings) > 0) {
-			foreach ((array)$this->settings as $name => $item) {
-				$function = !empty($item['cb']) ? $item['cb'] : $name;
-				if (!empty(get_option($name)) && function_exists($function)) {
-					if ($item['hook_type'] == 'filter') {
-						add_filter(
-							htmlspecialchars($item['hook']),
-							htmlspecialchars($function),
-							intval($item['priority']),
-							intval($item['pn'])
-						);
-					}
-					else {
-						add_action(
-							htmlspecialchars($item['hook']),
-							htmlspecialchars($function),
-							intval($item['priority']),
-							intval($item['pn'])
-						);
-					}
-				}
-			}
-		}
+		}		
 
 		// Allow developers to extend/modify the array of utilities
-		$this->utilities = apply_filters('r34nono_define_utilities_array', $this->utilities);
+		$r34nono_utilities = apply_filters('r34nono_define_utilities_array', $r34nono_utilities);
 		
 		// Sort the utilities list
-		ksort($this->utilities);
-		
-	}
-	
-	public function admin_page() {
-		add_options_page(
-			__('No Nonsense', 'no-nonsense'),
-			__('No Nonsense', 'no-nonsense'),
-			'manage_options',
-			'no-nonsense',
-			array(&$this, 'admin_page_callback'),
-			34
-		);
-	}
-	
-	public function admin_plugin_action_links($links) {
-			array_unshift(
-				$links,
-				'<a href="' . admin_url('options-general.php?page=no-nonsense') . '/">' . __('Settings', 'no-nonsense') . '</a>'
-			);
-			return $links;
-	}
-	
-	public function admin_enqueue_scripts() {
-		wp_enqueue_script('r34nono-admin', plugin_dir_url(__FILE__) . 'assets/admin-script-min.js', array('jquery'), get_option('r34nono_version'));
-		wp_enqueue_style('r34nono-admin-style', plugin_dir_url(__FILE__) . 'assets/admin-style-min.css', false, get_option('r34nono_version'));
-		wp_enqueue_style('r34nono-admin-bar-style', plugin_dir_url(__FILE__) . 'assets/admin-bar-min.css', false, get_option('r34nono_version'));
-	}
-
-	public function admin_page_callback() {
+		ksort($r34nono_utilities);
 	
 		// Run utilities
 		if (isset($_POST['r34nono-nonce-utilities']) && wp_verify_nonce($_POST['r34nono-nonce-utilities'], 'r34nono-nonce-utilities')) {
 			
 			$utilities_completed = array();
 			
-			foreach ((array)$this->utilities as $name => $item) {
+			foreach ((array)$r34nono_utilities as $name => $item) {
 				if (isset($_POST[$name]) && $_POST[$name] == 'on') {
 					if (function_exists($name)) {
 						$status = $name();
@@ -682,12 +603,14 @@ class R34NoNo {
 		include_once(plugin_dir_path(__FILE__) . 'templates/admin/r34nono-admin.php');
 
 	}
+
 	
 	public function enqueue_scripts() {
 		if (is_user_logged_in()) {
 			wp_enqueue_style('r34nono-admin-bar-style', plugin_dir_url(__FILE__) . 'assets/admin-bar-min.css', false, get_option('r34nono_version'));
 		}
 	}
+
 	
 	public function export_options_json() {
 		$settings = array();
@@ -700,6 +623,236 @@ class R34NoNo {
 		return json_encode($settings, JSON_PRETTY_PRINT);
 	}
 
+
+	// Translation strings are only loaded when needed, to avoid WordPress 6.7 _load_textdomain_just_in_time notices
+	protected function _append_settings_translation_strings() {
+
+			$this->settings['r34nono_admin_bar_logout_link'] = array_merge($this->settings['r34nono_admin_bar_logout_link'], array(
+				'title' => __('Admin bar logout link', 'no-nonsense'),
+				'description' => __('Adds a color-highlighted logout link directly into the admin bar, next to the username. Helpful to remind users to log out when their session is done.', 'no-nonsense'),
+				'group' => __('Admin Bar', 'no-nonsense'),
+			));
+			
+			$this->settings['r34nono_auto_core_update_send_email_only_on_error'] = array_merge($this->settings['r34nono_auto_core_update_send_email_only_on_error'], array(
+				'title' => __('Auto core update send email only on error', 'no-nonsense'),
+				'description' => __('By default, site admins receive a notification email every time WordPress runs auto-updates. Turn this on to only receive emails if there is an error during the update process.', 'no-nonsense'),
+				'group' => __('Security and Updates', 'no-nonsense'),
+			));
+			
+			$this->settings['r34nono_disable_author_archives'] = array_merge($this->settings['r34nono_disable_author_archives'], array(
+				'title' => __('Disable author archives', 'no-nonsense'),
+				'description' => __('Many sites have no need for the auto-generated author archive pages, and many site admins may not even realize these pages exist, yet they can be crawled by search engines. Turn on this option to disable the author archive pages.', 'no-nonsense'),
+				'group' => __('Front End', 'no-nonsense'),
+			));
+			
+			$this->settings['r34nono_disable_site_search'] = array_merge($this->settings['r34nono_disable_site_search'], array(
+				'title' => __('Disable site search', 'no-nonsense'),
+				'description' => __('If your site does not need search functionality, turn this on to cause all standard WordPress search URLs to redirect to the home page without performing a search. Does not affect admin search functionality. Also deregisters the search widget.', 'no-nonsense'),
+				'group' => __('Front End', 'no-nonsense'),
+			));
+			
+			$this->settings['r34nono_disallow_full_site_editing'] = array_merge($this->settings['r34nono_disallow_full_site_editing'], array(
+				'title' => __('Disallow full site editing (FSE)', 'no-nonsense'),
+				'description' => sprintf(__('Removes the "Edit site" link in the admin bar, the "Editor" link under "Appearance," and the FSE notice in the Customizer. Also redirects any direct attempts to access the FSE page to the admin dashboard. If this option is active, you do not need to use the %1$sRemove "Edit site" link%2$s option under "Admin Bar."', 'no-nonsense'), '<strong>', '</strong>'),
+				'group' => __('Block Editor', 'no-nonsense'),
+			));
+			
+			$this->settings['r34nono_hide_admin_bar_for_logged_in_non_editors'] = array_merge($this->settings['r34nono_hide_admin_bar_for_logged_in_non_editors'], array(
+				'title' => __('Hide admin bar for logged-in non-editors', 'no-nonsense'),
+				'description' => sprintf(__('Hides the admin bar on front-end pages for logged-in users with no editing capabilities. Admin bar will still display for these users when they access their profile page. %1$sNote:%2$s With this option turned on, you will need to provide another way on the front end of your site for logged-in users to access their profile page and the logout link.', 'no-nonsense'), '<strong>', '</strong>'),
+				'group' => __('Admin Bar', 'no-nonsense'),
+			));
+			
+			$this->settings['r34nono_limit_admin_elements_for_logged_in_non_editors'] = array_merge($this->settings['r34nono_limit_admin_elements_for_logged_in_non_editors'], array(
+				'title' => __('Limit admin elements for logged-in non-editors', 'no-nonsense'),
+				'description' => __('Hides parts of the admin sidebar menu and WordPress footer from logged-in users with no editing capabilities.', 'no-nonsense'),
+				'group' => __('Admin Access', 'no-nonsense'),
+			));
+			
+			$this->settings['r34nono_login_replace_wp_logo_link'] = array_merge($this->settings['r34nono_login_replace_wp_logo_link'], array(
+				'title' => __('Replace WP logo with site icon on login screen', 'no-nonsense'),
+				'description' => __('Replaces the WordPress logo and link on the login screen with the designated site icon (if set) and site link. If no icon is present, the WP logo and link are simply removed.', 'no-nonsense'),
+				'group' => __('Login', 'no-nonsense'),
+			));
+
+			$this->settings['r34nono_prevent_block_directory_access'] = array_merge($this->settings['r34nono_prevent_block_directory_access'], array(
+				'title' => __('Prevent block directory access', 'no-nonsense'),
+				'description' => sprintf(__('Removes the directory for installing new blocks when searching for blocks in the block editor sidebar.', 'no-nonsense'), '<strong>', '</strong>'),
+				'group' => __('Block Editor', 'no-nonsense'),
+			));
+			
+			$this->settings['r34nono_redirect_admin_to_homepage_for_logged_in_non_editors'] = array_merge($this->settings['r34nono_redirect_admin_to_homepage_for_logged_in_non_editors'], array(
+				'title' => __('Redirect admin to home page for logged-in non-editors', 'no-nonsense'),
+				'description' => __('Logged-in users with no editing capabilities (e.g. Subscribers) will be redirected to the site home page if they try to access any admin pages, other than their own profile page.', 'no-nonsense'),
+				'options' => array(
+					'prevent_profile_access' => __('Also prevent access to profile screen', 'no-nonsense'),
+				),
+				'group' => __('Admin Access', 'no-nonsense'),
+			));
+
+			$this->settings['r34nono_remove_admin_color_scheme_picker'] = array_merge($this->settings['r34nono_remove_admin_color_scheme_picker'], array(
+				'title' => __('Remove admin color scheme picker', 'no-nonsense'),
+				'description' => __('Removes the color scheme picker from the user profile page.', 'no-nonsense'),
+				'group' => __('Admin Features', 'no-nonsense'),
+			));
+			
+			$this->settings['r34nono_remove_admin_email_check_interval'] = array_merge($this->settings['r34nono_remove_admin_email_check_interval'], array(
+				'title' => __('Remove admin email check interval', 'no-nonsense'),
+				'description' => __('Skips the periodic verification of admin email address upon login.', 'no-nonsense'),
+				'group' => __('Login', 'no-nonsense'),
+			));
+
+			$this->settings['r34nono_remove_admin_wp_logo'] = array_merge($this->settings['r34nono_remove_admin_wp_logo'], array(
+				'title' => __('Remove admin bar WordPress logo', 'no-nonsense'),
+				'description' => __('Removes WordPress icon and link from the admin bar.', 'no-nonsense'),
+				'group' => __('Admin Bar', 'no-nonsense'),
+			));
+
+			$this->settings['r34nono_remove_attachment_pages'] = array_merge($this->settings['r34nono_remove_attachment_pages'], array(
+				'title' => __('Redirect attachment pages to file URL', 'no-nonsense'),
+				'description' => __('By default, WordPress creates an "attachment page" for every file uploaded to the Media Library. This setting will redirect those pages to the file URL itself.', 'no-nonsense'),
+				'options' => array(
+					'attachment_page_404' => __('Return HTTP 404 error instead of redirecting', 'no-nonsense'),
+				),
+				'group' => __('Front End', 'no-nonsense'),
+			));
+
+			$this->settings['r34nono_remove_comments_from_admin'] = array_merge($this->settings['r34nono_remove_comments_from_admin'], array(
+				'title' => __('Remove Comments from admin', 'no-nonsense'),
+				'description' => sprintf(__('Removes links to Comments in the admin bar and admin sidebar menu. Does not actually deactivate comment functionality; this should be done under %1$sSettings %2$s Discussion%3$s.', 'no-nonsense'), '<a href="' . admin_url('options-discussion.php') . '" target="_blank">', '&gt;', '</a>'),
+				'group' => __('Admin Features', 'no-nonsense'),
+			));
+			
+			$this->settings['r34nono_remove_comments_from_front_end'] = array_merge($this->settings['r34nono_remove_comments_from_front_end'], array(
+				'title' => __('Remove comments from front end', 'no-nonsense'),
+				'description' => __('Removes all standard comment output from front-end pages. May not function properly if theme uses non-standard methods to display comments.', 'no-nonsense'),
+				'group' => __('Front End', 'no-nonsense'),
+			));
+			
+			$this->settings['r34nono_remove_dashboard_widgets'] = array_merge($this->settings['r34nono_remove_dashboard_widgets'], array(
+				'title' => __('Remove Dashboard widgets', 'no-nonsense'),
+				'description' => __('Removes the selected widgets from the WordPress admin dashboard.', 'no-nonsense'),
+				'options' => array(
+					'dashboard_activity' => __('Activity', 'no-nonsense'),
+					'dashboard_right_now' => __('At a Glance', 'no-nonsense'),
+					'dashboard_incoming_links' => __('Incoming Links', 'no-nonsense'),
+					'dashboard_plugins' => __('Plugins', 'no-nonsense'),
+					'dashboard_quick_press' => __('Quick Draft', 'no-nonsense'),
+					'dashboard_recent_comments' => __('Recent Comments', 'no-nonsense'),
+					'dashboard_recent_drafts' => __('Recent Drafts', 'no-nonsense'),
+					'dashboard_site_health' => __('Site Health', 'no-nonsense'),
+					'welcome_panel' => __('Welcome', 'no-nonsense'),
+					'dashboard_primary' => __('WordPress Events and News', 'no-nonsense'),
+				),
+				'group' => __('Admin Features', 'no-nonsense'),
+			));
+			
+			$this->settings['r34nono_remove_default_block_patterns'] = array_merge($this->settings['r34nono_remove_default_block_patterns'], array(
+				'title' => __('Remove default block patterns', 'no-nonsense'),
+				'description' => sprintf(__('Removes the default block patterns from the block editor, leaving only custom block patterns defined by your theme.', 'no-nonsense'), '<strong>', '</strong>'),
+				'group' => __('Block Editor', 'no-nonsense'),
+			));
+			
+			$this->settings['r34nono_remove_duotone_svg_filters'] = array_merge($this->settings['r34nono_remove_duotone_svg_filters'], array(
+				'title' => __('Remove duotone SVG filters', 'no-nonsense'),
+				'description' => __('Removes hardcoded HTML SVG tags for block editor duotone effects that normally get loaded on every page for Safari users.', 'no-nonsense'),
+				'group' => __('Block Editor', 'no-nonsense'),
+			));
+			
+			$this->settings['r34nono_remove_edit_site'] = array_merge($this->settings['r34nono_remove_edit_site'], array(
+				'title' => __('Remove "Edit site" link', 'no-nonsense'),
+				'description' => sprintf(__('Removes the full site editing (FSE) link that appears in the admin bar on sites that use block themes, to avoid accidentally clicking it when intending to click "Edit Page/Post," but leaves other FSE features in place. To disallow FSE entirely, select %1$sDisallow full site editing (FSE)%2$s under "Admin Features" instead.', 'no-nonsense'), '<strong>', '</strong>'),
+				'group' => __('Block Editor', 'no-nonsense'),
+			));
+
+			$this->settings['r34nono_remove_head_tags'] = array_merge($this->settings['r34nono_remove_head_tags'], array(
+				'title' => __('Remove head tags', 'no-nonsense'),
+				'description' => sprintf(__('Removes the selected %1$s tags from the %2$s on all front-end pages.', 'no-nonsense'), '<code>&lt;link&gt;</code>', '<code>&lt;head&gt;</code>'),
+				'options' => array(
+					'rsd_link' => __('EditURI/RSD', 'no-nonsense'),
+					'oembed_linktypes' => __('oEmbed Discovery Links', 'no-nonsense'),
+					'resource_hints' => __('Resource Hints', 'no-nonsense'),
+					'rest_output_link_wp_head' => __('REST API', 'no-nonsense'),
+					'feed_links' => __('RSS Feeds', 'no-nonsense'),
+					'wlwmanifest_link' => __('WLW Manifest', 'no-nonsense'),
+					'wp_generator' => __('WP Generator', 'no-nonsense'),
+					'wp_shortlink_wp_head' => __('WP Shortlink', 'no-nonsense'),
+				),
+				'group' => __('Front End', 'no-nonsense'),
+			));
+			
+			$this->settings['r34nono_remove_front_end_edit_links'] = array_merge($this->settings['r34nono_remove_front_end_edit_links'], array(
+				'title' => __('Remove front end Edit links', 'no-nonsense'),
+				'description' => __('Removes Edit links that appear within the page layout of certain themes for logged-in users. Does not affect Edit links in the admin bar.', 'no-nonsense'),
+				'group' => __('Front End', 'no-nonsense'),
+			));
+
+			$this->settings['r34nono_remove_global_styles'] = array_merge($this->settings['r34nono_remove_global_styles'], array(
+				'title' => __('Remove global styles (inline CSS)', 'no-nonsense'),
+				'description' => sprintf(__('Removes inline CSS the Block Editor inserts into the head of every page. Note that this may not remove %1$sall%2$s inline CSS; styles inserted by your theme or plugins will still be present.', 'no-nonsense'), '<em>', '</em>'),
+				'group' => __('Block Editor', 'no-nonsense'),
+			));
+
+			$this->settings['r34nono_remove_howdy'] = array_merge($this->settings['r34nono_remove_howdy'], array(
+				'title' => __('Remove "Howdy"', 'no-nonsense'),
+				'description' => __('Removes "Howdy" greeting text (or the corresponding text in other languages) next to username in admin bar.', 'no-nonsense'),
+				'group' => __('Admin Bar', 'no-nonsense'),
+			));
+
+			$this->settings['r34nono_remove_posts_from_admin'] = array_merge($this->settings['r34nono_remove_posts_from_admin'], array(
+				'title' => __('Remove Posts from admin', 'no-nonsense'),
+				'description' => sprintf(__('If you use WordPress as a general-purpose CMS without a blog component, this option will hide the Posts link in the main admin navigation. It does %1$snot%2$s deactivate the "Posts" post type itself, nor restrict any front-end content. If you are using an SEO plugin, you will need to adjust its settings to exclude Posts from your sitemap XML.', 'no-nonsense'), '<strong>', '</strong>'),
+				'group' => __('Admin Features', 'no-nonsense'),
+			));
+			
+			$this->settings['r34nono_remove_widgets_block_editor'] = array_merge($this->settings['r34nono_remove_widgets_block_editor'], array(
+				'title' => __('Remove Widgets block editor', 'no-nonsense'),
+				'description' => __('Restores the previous default functionality of the Widgets page.', 'no-nonsense'),
+				'group' => __('Block Editor', 'no-nonsense'),
+			));
+
+			$this->settings['r34nono_remove_wp_emoji'] = array_merge($this->settings['r34nono_remove_wp_emoji'], array(
+				'title' => __('Remove WP emoji', 'no-nonsense'),
+				'description' => __('Removes built-in emoji-related WordPress JavaScript code that normally gets loaded on every page. Also removes emoji tools in the TinyMCE editor.', 'no-nonsense'),
+				'group' => __('Front End', 'no-nonsense'),
+			));
+
+			$this->settings['r34nono_xmlrpc_disabled'] = array_merge($this->settings['r34nono_xmlrpc_disabled'], array(
+				'title' => __('Disable XML-RPC', 'no-nonsense'),
+				'description' => sprintf(__('Most WordPress sites do not use XML-RPC, although some plugins (e.g. Jetpack) and mobile applications may require it. Per changes in WordPress 3.5, turning this option on will only disable XML-RPC requests that require authentication. Use the %1$sAlso kill any incoming XML-RPC request%2$s option below to cause all incoming XML-RPC requests to exit early. (Note: Because this is a plugin-based solution, XML-RPC requests still must partially load, to the point where this plugin is active, before it can kill the process. For better performance during a DDOS attack, you may wish to block calls to %3$s directly in your site&rsquo;s %4$s file.', 'no-nonsense'), '<strong>', '</strong>', '<code>xmlrpc.php</code>', '<code>.htaccess</code>'),
+				'options' => array(
+					'kill_requests' => __('Also kill any incoming XML-RPC request', 'no-nonsense'),
+				),
+				'group' => __('Security and Updates', 'no-nonsense'),
+			));
+
+			if (isset($this->settings['r34nono_core_upgrade_skip_new_bundled'])) {
+				$this->settings['r34nono_core_upgrade_skip_new_bundled'] = array_merge($this->settings['r34nono_core_upgrade_skip_new_bundled'], array(
+					'title' => __('Core upgrade skip new bundled', 'no-nonsense'),
+					'description' => sprintf(__('Skips installing things like new themes that are bundled by default with WordPress core upgrades. This can also be handled manually by adding the %1$sCORE_UPGRADE_SKIP_NEW_BUNDLED%2$s constant in your %3$swp-config.php%4$s file.', 'no-nonsense'), '<code>', '</code>', '<code>', '</code>'),
+					'group' => __('Security and Updates', 'no-nonsense'),
+				));
+			}
+	
+			if (isset($this->settings['r34nono_disallow_file_edit'])) {
+				$this->settings['r34nono_disallow_file_edit'] = array_merge($this->settings['r34nono_disallow_file_edit'], array(
+					'title' => __('Disallow theme and plugin file editing', 'no-nonsense'),
+					'description' => __('Removes the ability for site admins to edit theme and plugin files directly within WordPress.', 'no-nonsense'),
+					'group' => __('Admin Features', 'no-nonsense'),
+				));
+			}
+			
+			if (isset($this->settings['r34nono_plugins_jetpack_restrict_admin_access'])) {
+				$this->settings['r34nono_plugins_jetpack_restrict_admin_access'] = array_merge($this->settings['r34nono_plugins_jetpack_restrict_admin_access'], array(
+					'title' => 'Jetpack: ' . __('Restrict admin access', 'no-nonsense'), // Don't translate plugin name
+					'description' => __('If checked, only users with Editor or Administrator role will be able to see the Jetpack link in the admin sidebar. Note that in some cases this might not restrict access to the pages themselves, if the user knows the URL.', 'no-nonsense'),
+					'group' => __('Plugins', 'no-nonsense'),
+				));
+			}
+			
+	}
+
+
 	private function _get_version() {
 		if (!function_exists('get_plugin_data')) {
 			require_once(ABSPATH . 'wp-admin/includes/plugin.php');
@@ -708,4 +861,5 @@ class R34NoNo {
 		return $plugin_data['Version'];
 	}
 
+	
 }
