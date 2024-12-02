@@ -3,7 +3,7 @@
 Plugin Name: No Nonsense
 Plugin URI: https://nononsensewp.com
 Description: The fastest, cleanest way to get rid of the parts of WordPress you don't need.
-Version: 3.5.0
+Version: 3.5.0.1
 Author: Room 34 Creative Services, LLC
 Author URI: https://room34.com
 License: GPLv2
@@ -46,7 +46,6 @@ require_once(plugin_dir_path(__FILE__) . 'class-r34nono.php');
 
 
 // Initialize plugin functionality
-add_action('plugins_loaded', 'r34nono_plugins_loaded');
 function r34nono_plugins_loaded() {
 
 	// Instantiate class
@@ -57,10 +56,10 @@ function r34nono_plugins_loaded() {
 	if (is_admin() && version_compare(get_option('r34nono_version'), $r34nono->version, '<')) { r34nono_update(); }
 	
 }
+add_action('plugins_loaded', 'r34nono_plugins_loaded');
 
 
 // Install
-register_activation_hook(__FILE__, 'r34nono_install');
 function r34nono_install() {
 	global $r34nono;
 
@@ -85,6 +84,7 @@ function r34nono_install() {
 	update_option('r34nono_deferred_admin_notices', $notices);
 	
 }
+register_activation_hook(__FILE__, 'r34nono_install');
 
 
 // Updates
@@ -100,7 +100,7 @@ function r34nono_update() {
 		update_option('r34nono_version', $r34nono->version);
 	}
 	
-	// Version-specific updates (checking against old version number; must run *before* updating option)
+	// Version-specific updates
 	if (version_compare($previous_version, '1.4.0', '<')) {
 		if (get_option('r34nono_xmlrpc_disabled', null) !== null && get_option('r34nono_xmlrpc_enabled')) {
 			update_option('r34nono_xmlrpc_disabled', get_option('r34nono_xmlrpc_enabled'));
@@ -116,7 +116,6 @@ function r34nono_update() {
 
 
 // Deferred install/update admin notices
-add_action('admin_notices', 'r34nono_deferred_admin_notices');
 function r34nono_deferred_admin_notices() {
 	if ($notices = get_option('r34nono_deferred_admin_notices', array())) {
 		foreach ((array)$notices as $notice) {
@@ -125,3 +124,4 @@ function r34nono_deferred_admin_notices() {
 	}
 	delete_option('r34nono_deferred_admin_notices');
 }
+add_action('admin_notices', 'r34nono_deferred_admin_notices');
