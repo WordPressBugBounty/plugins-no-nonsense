@@ -4,8 +4,8 @@ Donate link: https://room34.com/payments
 Tags: remove howdy, remove emoji, remove comments, remove xml-rpc, remove WordPress logo
 Requires at least: 4.9
 Requires PHP: 7.0.0
-Tested up to: 6.7
-Stable tag: 3.5.1
+Tested up to: 6.7.1
+Stable tag: 3.6.0
 License: GPLv2
 
 The fastest, cleanest way to get rid of the parts of WordPress you don't need.
@@ -25,6 +25,15 @@ After installing the plugin, navigate to **Settings &gt; No Nonsense** to choose
 == Screenshots ==
 
 == Changelog ==
+
+= 3.6.0 - 2025.02.04 =
+
+* Added **Disable Post Via Email** and **Disable Update Services** settings (under Admin Features).
+* Added **Require login** setting (under Login). Useful for sites that are in development and should not be publicly accessible.
+* Updated **Remove Comments from admin** to include hiding the "Recent Comments" section of the **Activity** section on the Dashboard. _Note: Hides the block with CSS rather than removing it, because the function that generates this output (`wp_dashboard_recent_comments()`), and the one that calls it (`wp_dashboard_site_activity()`), contain no hooks._
+* Minor code refactoring.
+* i18n: Updated translation files with new text strings.
+* Bumped *Tested up to* to 6.7.1.
 
 = 3.5.1 - 2024.12.02 =
 
@@ -67,7 +76,7 @@ _Note: If your locale is set to Germany or the Netherlands, the incomplete, comm
 
 * Changed priorities for actions that call `r34nono_admin_bar_logout_link_admin_bar_menu_callback()` and `r34nono_remove_howdy()` to `PHP_INT_MAX - 100`, to account for changes introduced in WP core version 6.6.1. In `wp-includes/class-wp-admin-bar.php`, priorities for three actions in the `WP_Admin_Bar::add_menus()` method were changed from 4, 7, and 8 to 9991, 9992, and 9999. See Trac tickets [#61615](https://core.trac.wordpress.org/ticket/61615) and [#61738](https://core.trac.wordpress.org/ticket/61738) for discussion of this change, and the issues it introduces. At this point it is possible the core team may revert the change, but our modified priority should continue to work either way.
 * Added conditional in `r34nono_remove_howdy()` to prevent possible PHP warnings if `$wp_admin_bar` node `my-account` is undefined when the function runs. (In practice this should be resolved by the aforementioned priority change.)
-* Bumped *Tested up to* to 6.6.1
+* Bumped *Tested up to* to 6.6.1.
 
 = 3.3.2.1 - 2024.06.04 =
 
@@ -76,7 +85,7 @@ _Note: If your locale is set to Germany or the Netherlands, the incomplete, comm
 = 3.3.2 - 2024.04.23 =
 
 * New logic for handling the current plugin version number.
-* Bumped 'tested up to' to 6.5.2'
+* Bumped 'tested up to' to 6.5.2.
 
 = 3.3.1 - 2023.11.20 =
 

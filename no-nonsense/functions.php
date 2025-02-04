@@ -102,6 +102,10 @@ function r34nono_disable_author_archives_wp_sitemaps_add_provider_callback($prov
 	return $provider;
 }
 
+function r34nono_disable_post_via_email() {
+	add_filter('enable_post_by_email_configuration', '__return_false');
+}
+
 function r34nono_disable_site_search() {
 	// Disable search logic when parsing query (front end only)
 	if (!is_admin()) {
@@ -135,6 +139,10 @@ function r34nono_disable_site_search_parse_query_callback($query) {
 
 function r34nono_disable_site_search_widgets_init_callback() {
 	unregister_widget('WP_Widget_Search');
+}
+
+function r34nono_disable_update_services() {
+	add_filter('enable_update_services_configuration', '__return_false');
 }
 
 function r34nono_disallow_file_edit() {
@@ -252,6 +260,11 @@ function r34nono_remove_attachment_pages() {
 	}
 }
 
+function r34nono_remove_comments_admin_head_callback() {
+	// There are no hooks in the wp_dashboard_recent_comments() function so this is the best we can do
+	echo '<style>#dashboard_activity #latest-comments { display: none !important; }</style>';
+}
+
 function r34nono_remove_comments_column($columns) {
 	unset($columns['comments']);
 	return $columns;
@@ -263,6 +276,7 @@ function r34nono_remove_comments_from_admin() {
 	add_filter('manage_edit-post_columns', 'r34nono_remove_comments_column');
 	add_filter('manage_edit-page_columns', 'r34nono_remove_comments_column');
 	add_filter('manage_media_columns', 'r34nono_remove_comments_column');
+	add_filter('admin_head', 'r34nono_remove_comments_admin_head_callback');
 }
 
 function r34nono_remove_comments_from_admin_admin_menu_callback() {
@@ -395,6 +409,22 @@ function r34nono_remove_wp_emoji_from_tinymce($plugins) {
 	return is_array($plugins) ? array_diff($plugins, array('wpemoji')) : array();
 }
 
+function r34nono_require_login() {
+	// Doing AJAX, cron, CLI or REST; bypass
+	if (wp_doing_ajax() || wp_doing_cron() || (defined('WP_CLI') && WP_CLI) || wp_is_json_request()) { return; }
+	// User is logged in
+	if (is_user_logged_in()) { return; }
+	// We're already on the login screen
+	if (is_login()) { return; }
+	// Get the current request URL
+	global $wp;
+	$requested_url = home_url($wp->request);
+	// Redirect user to login page (with redirect back to requested page after logging in)
+	nocache_headers();
+	wp_safe_redirect(wp_login_url($requested_url), 302);
+	exit;
+}
+
 function r34nono_xmlrpc_disabled() {
 	$options = get_option('r34nono_xmlrpc_disabled_options');
 	// Turn off XML-RPC (after WP 3.5 this only turns off unauthenticated access)
@@ -447,9 +477,7 @@ function r34nono_deactivate_and_delete_hello_dolly() {
 function r34nono_deactivate_and_delete_hello_dolly_admin_head_callback() {
 	$current_screen = get_current_screen();
 	if ($current_screen->base == 'plugin-install') {
-		?>
-		<style>.plugin-card-hello-dolly { display: none !important; }</style>
-		<?php
+		echo '<style>.plugin-card-hello-dolly { display: none !important; }</style>';
 	}
 }
 

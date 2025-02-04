@@ -35,7 +35,23 @@ class R34NoNo {
 			'show_in_admin' => true,
 		),
 		
+		'r34nono_disable_post_via_email' => array(
+			'hook_type' => 'action',
+			'hook' => 'init',
+			'priority' => 10,
+			'pn' => 0,
+			'show_in_admin' => true,
+		),
+		
 		'r34nono_disable_site_search' => array(
+			'hook_type' => 'action',
+			'hook' => 'init',
+			'priority' => 10,
+			'pn' => 0,
+			'show_in_admin' => true,
+		),
+		
+		'r34nono_disable_update_services' => array(
 			'hook_type' => 'action',
 			'hook' => 'init',
 			'priority' => 10,
@@ -250,6 +266,14 @@ class R34NoNo {
 		),
 
 		'r34nono_remove_wp_emoji' => array(
+			'hook_type' => 'action',
+			'hook' => 'init',
+			'priority' => 10,
+			'pn' => 0,
+			'show_in_admin' => true,
+		),
+
+		'r34nono_require_login' => array(
 			'hook_type' => 'action',
 			'hook' => 'init',
 			'priority' => 10,
@@ -645,10 +669,22 @@ class R34NoNo {
 				'group' => __('Front End', 'no-nonsense'),
 			));
 			
+			$this->settings['r34nono_disable_post_via_email'] = array_merge($this->settings['r34nono_disable_post_via_email'], array(
+				'title' => __('Disable Post Via Email', 'no-nonsense'),
+				'description' => __('Removes configuration settings for "Post Via Email" on the Writing Settings page, and turns off the feature.', 'no-nonsense'),
+				'group' => __('Admin Features', 'no-nonsense'),
+			));
+			
 			$this->settings['r34nono_disable_site_search'] = array_merge($this->settings['r34nono_disable_site_search'], array(
 				'title' => __('Disable site search', 'no-nonsense'),
 				'description' => __('If your site does not need search functionality, turn this on to cause all standard WordPress search URLs to redirect to the home page without performing a search. Does not affect admin search functionality. Also deregisters the search widget.', 'no-nonsense'),
 				'group' => __('Front End', 'no-nonsense'),
+			));
+			
+			$this->settings['r34nono_disable_update_services'] = array_merge($this->settings['r34nono_disable_update_services'], array(
+				'title' => __('Disable Update Services', 'no-nonsense'),
+				'description' => __('Removes configuration settings for "Update Services" on the Writing Settings page, and turns off the feature.', 'no-nonsense'),
+				'group' => __('Admin Features', 'no-nonsense'),
 			));
 			
 			$this->settings['r34nono_disallow_full_site_editing'] = array_merge($this->settings['r34nono_disallow_full_site_editing'], array(
@@ -815,6 +851,12 @@ class R34NoNo {
 				'title' => __('Remove WP emoji', 'no-nonsense'),
 				'description' => __('Removes built-in emoji-related WordPress JavaScript code that normally gets loaded on every page. Also removes emoji tools in the TinyMCE editor.', 'no-nonsense'),
 				'group' => __('Front End', 'no-nonsense'),
+			));
+
+			$this->settings['r34nono_require_login'] = array_merge($this->settings['r34nono_remove_wp_emoji'], array(
+				'title' => __('Require login', 'no-nonsense'),
+				'description' => __('Sends all non-logged-in front end page requests to the login screen. Note: Does not apply to AJAX, cron, or CLI requests. While not intended to provide absolute security, this is useful for preventing unauthorized viewing of the site during site development.', 'no-nonsense'),
+				'group' => __('Login', 'no-nonsense'),
 			));
 
 			$this->settings['r34nono_xmlrpc_disabled'] = array_merge($this->settings['r34nono_xmlrpc_disabled'], array(
