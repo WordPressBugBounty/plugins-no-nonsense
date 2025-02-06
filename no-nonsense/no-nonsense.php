@@ -3,7 +3,9 @@
 Plugin Name: No Nonsense
 Plugin URI: https://nononsensewp.com
 Description: The fastest, cleanest way to get rid of the parts of WordPress you don't need.
-Version: 3.6.0
+Version: 3.6.1
+Requires at least: 4.9
+Requires PHP: 7.0
 Author: Room 34 Creative Services, LLC
 Author URI: https://room34.com
 License: GPLv2
@@ -60,17 +62,42 @@ add_action('plugins_loaded', 'r34nono_plugins_loaded');
 
 
 // Load text domain for translations
-/**
- * Note: We are loading this absolutely as early as possible to avoid WP 6.7 warnings.
- * Embedded ACF PRO must load AFTER translations; it is now loading on 'init' with
- * priority 2 - PHP_INT_MAX which appears to be early enough for it to function properly;
- * translations are loading on 'init' with priority 1 - PHP_INT_MAX.
- */
 function r34nono_load_plugin_textdomain() {
 	load_plugin_textdomain('no-nonsense', false, basename(plugin_dir_path(__FILE__)) . '/i18n/languages/');
 }
-add_action('plugins_loaded', 'r34nono_load_plugin_textdomain');
 add_action('init', 'r34nono_load_plugin_textdomain', 1 - PHP_INT_MAX);
+
+
+// Force loading of embedded translations instead of community translations
+function r34nono_load_textdomain_mofile($mofile, $domain) {
+	if ($domain == 'no-nonsense' && strpos($mofile, WP_LANG_DIR . '/plugins') !== false) {
+		$locale = apply_filters('plugin_locale', determine_locale(), $domain);
+		$locales = r34nono_i18n_locales();
+		// Only replace the locales we have translated directly within the plugin
+		if (is_array($locales) && in_array($locale, $locales)) {
+			$mofile = plugin_dir_path(__FILE__) . '/i18n/languages/' . $domain . '-' . $locale . '.mo';
+		}
+	}
+	return $mofile;
+}
+add_filter('load_textdomain_mofile', 'r34nono_load_textdomain_mofile', 10, 2);
+
+
+// Get list of translated locales
+function r34nono_i18n_locales() {
+	$locales = get_option('r34nono_i18n_locales');
+	if (empty($locales)) {
+		$locales = array();
+		$files = list_files(plugin_dir_path(__FILE__) . '/i18n/languages', 1);
+		foreach ((array)$files as $file) {
+			if (pathinfo($file, PATHINFO_EXTENSION) == 'mo') {
+				$locales[] = str_replace('no-nonsense-', '', pathinfo($file, PATHINFO_FILENAME));
+			}
+		}
+		update_option('r34nono_i18n_locales', $locales);
+	}
+	return $locales;
+}
 
 
 // Install
@@ -92,6 +119,7 @@ function r34nono_install() {
 	// Admin notice with link to settings
 	$notices = get_option('r34nono_deferred_admin_notices', array());
 	$notices[] = array(
+		/* translators: 1. HTML tags and plugin name (do not translate) 2. HTML tag and dynamic link URL 3. HTML tags */
 		'content' => '<p>' . sprintf(__('Thank you for installing %1$s. To get started, please visit the %2$sSettings%3$s page.', 'no-nonsense'), '<strong>No Nonsense</strong>', '<a href="' . admin_url('options-general.php?page=no-nonsense') . '"><strong>', '</strong></a>') . '</p>',
 		'status' => 'info'
 	);

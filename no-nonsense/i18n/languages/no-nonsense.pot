@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: No Nonsense\n"
-"POT-Creation-Date: 2025-02-04 11:17-0600\n"
+"POT-Creation-Date: 2025-02-06 12:35-0600\n"
 "PO-Revision-Date: 2021-12-27 08:18-0600\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -50,7 +50,8 @@ msgstr ""
 msgid "Delete sample content"
 msgstr ""
 
-#: class-r34nono.php:477
+#. translators: 1. HTML tags 2. HTML tag 3. HTML tag 4. HTML tag
+#: class-r34nono.php:478
 #, php-format
 msgid ""
 "Deletes the sample page, post, and comment that are included by default in a "
@@ -59,11 +60,11 @@ msgid ""
 "are actively using them, they will still be deleted!"
 msgstr ""
 
-#: class-r34nono.php:483
+#: class-r34nono.php:484
 msgid "Disable all comments and trackbacks"
 msgstr ""
 
-#: class-r34nono.php:484
+#: class-r34nono.php:485
 msgid ""
 "Sets comments and trackbacks to \"closed\" on all existing content. Also "
 "turns off the WordPress \"Allow link notifications from other blogs "
@@ -71,11 +72,12 @@ msgid ""
 "comments on new posts\" options."
 msgstr ""
 
-#: class-r34nono.php:489
+#: class-r34nono.php:490
 msgid "Remove default tagline"
 msgstr ""
 
-#: class-r34nono.php:490
+#. translators: 1. Additional translated string 2. HTML tags 3. HTML tag
+#: class-r34nono.php:492
 #, php-format
 msgid ""
 "Removes the default WordPress tagline (\"%1$s\"). You will probably want to "
@@ -85,26 +87,28 @@ msgid ""
 "will have no effect."
 msgstr ""
 
-#: class-r34nono.php:490 functions.php:536 functions.php:537
+#: class-r34nono.php:492 functions.php:535 functions.php:536
 msgid "Just another WordPress site"
 msgstr ""
 
-#: class-r34nono.php:495
+#. translators: 1. HTML tag and sample code
+#: class-r34nono.php:498
 #, php-format
 msgid "Set permalink structure to %1$s"
 msgstr ""
 
-#: class-r34nono.php:496
+#: class-r34nono.php:499
 msgid ""
 "Sets the permalink structure to the most commonly used option on modern "
 "websites, and flushes rewrite rules."
 msgstr ""
 
-#: class-r34nono.php:507
+#: class-r34nono.php:510
 msgid "Delete inactive themes"
 msgstr ""
 
-#: class-r34nono.php:508
+#. translators: 1. HTML tags 2. HTML tag
+#: class-r34nono.php:512
 #, php-format
 msgid ""
 "Deletes all installed themes except the currently active theme. If your site "
@@ -116,82 +120,84 @@ msgid ""
 "utility."
 msgstr ""
 
-#: class-r34nono.php:531
+#: class-r34nono.php:535
 msgid "Utility executed successfully."
 msgstr ""
 
-#: class-r34nono.php:531
+#: class-r34nono.php:535
 msgid "Utility executed, but with no effect or possible errors."
 msgstr ""
 
-#: class-r34nono.php:537
+#: class-r34nono.php:541
 msgid "Utility could not execute; requested function does not exist."
 msgstr ""
 
-#: class-r34nono.php:544
+#: class-r34nono.php:548
 msgid "Utilities completed:"
 msgstr ""
 
-#: class-r34nono.php:568
+#: class-r34nono.php:572
 msgid "Settings updated. You may need to refresh the page to see changes."
 msgstr ""
 
-#: class-r34nono.php:602
+#: class-r34nono.php:606
 msgid "Your JSON settings were imported."
 msgstr ""
 
-#: class-r34nono.php:605
+#. translators: 1. Dynamic text string
+#: class-r34nono.php:610
 #, php-format
 msgid ""
 "Your JSON settings were imported, but %1$s invalid line(s) were skipped."
 msgstr ""
 
-#: class-r34nono.php:611
+#. translators: 1. HTML tags and dynamic text string
+#: class-r34nono.php:617
 #, php-format
 msgid ""
 "A JSON error occurred during tne import process: %1$s Please correct any "
 "JSON formatting errors and try again."
 msgstr ""
 
-#: class-r34nono.php:620
+#: class-r34nono.php:626
 msgid "No JSON data was submitted. Settings have not been modified."
 msgstr ""
 
-#: class-r34nono.php:655
+#: class-r34nono.php:661
 msgid "Admin bar logout link"
 msgstr ""
 
-#: class-r34nono.php:656
+#: class-r34nono.php:662
 msgid ""
 "Adds a color-highlighted logout link directly into the admin bar, next to "
 "the username. Helpful to remind users to log out when their session is done."
 msgstr ""
 
-#: class-r34nono.php:657 class-r34nono.php:699 class-r34nono.php:744
-#: class-r34nono.php:835
+#: class-r34nono.php:663 class-r34nono.php:707 class-r34nono.php:753
+#: class-r34nono.php:849
 msgid "Admin Bar"
 msgstr ""
 
-#: class-r34nono.php:661
+#: class-r34nono.php:667
 msgid "Auto core update send email only on error"
 msgstr ""
 
-#: class-r34nono.php:662
+#: class-r34nono.php:668
 msgid ""
 "By default, site admins receive a notification email every time WordPress "
 "runs auto-updates. Turn this on to only receive emails if there is an error "
 "during the update process."
 msgstr ""
 
-#: class-r34nono.php:663 class-r34nono.php:868 class-r34nono.php:875
+#: class-r34nono.php:669 class-r34nono.php:884 class-r34nono.php:892
 msgid "Security and Updates"
 msgstr ""
 
-#: class-r34nono.php:667
+#: class-r34nono.php:673
 msgid "Disable author archives"
 msgstr ""
 
-#: class-r34nono.php:668
+#: class-r34nono.php:674
 msgid ""
 "Many sites have no need for the auto-generated author archive pages, and "
 "many site admins may not even realize these pages exist, yet they can be "
@@ -199,33 +205,33 @@ msgid ""
 "pages."
 msgstr ""
 
-#: class-r34nono.php:669 class-r34nono.php:681 class-r34nono.php:753
-#: class-r34nono.php:765 class-r34nono.php:817 class-r34nono.php:823
-#: class-r34nono.php:853
+#: class-r34nono.php:675 class-r34nono.php:687 class-r34nono.php:762
+#: class-r34nono.php:775 class-r34nono.php:819 class-r34nono.php:843
+#: class-r34nono.php:868
 msgid "Front End"
 msgstr ""
 
-#: class-r34nono.php:673
+#: class-r34nono.php:679
 msgid "Disable Post Via Email"
 msgstr ""
 
-#: class-r34nono.php:674
+#: class-r34nono.php:680
 msgid ""
 "Removes configuration settings for \"Post Via Email\" on the Writing "
 "Settings page, and turns off the feature."
 msgstr ""
 
-#: class-r34nono.php:675 class-r34nono.php:687 class-r34nono.php:732
-#: class-r34nono.php:759 class-r34nono.php:783 class-r34nono.php:841
-#: class-r34nono.php:883
+#: class-r34nono.php:681 class-r34nono.php:693 class-r34nono.php:741
+#: class-r34nono.php:769 class-r34nono.php:793 class-r34nono.php:856
+#: class-r34nono.php:900
 msgid "Admin Features"
 msgstr ""
 
-#: class-r34nono.php:679
+#: class-r34nono.php:685
 msgid "Disable site search"
 msgstr ""
 
-#: class-r34nono.php:680
+#: class-r34nono.php:686
 msgid ""
 "If your site does not need search functionality, turn this on to cause all "
 "standard WordPress search URLs to redirect to the home page without "
@@ -233,21 +239,22 @@ msgid ""
 "deregisters the search widget."
 msgstr ""
 
-#: class-r34nono.php:685
+#: class-r34nono.php:691
 msgid "Disable Update Services"
 msgstr ""
 
-#: class-r34nono.php:686
+#: class-r34nono.php:692
 msgid ""
 "Removes configuration settings for \"Update Services\" on the Writing "
 "Settings page, and turns off the feature."
 msgstr ""
 
-#: class-r34nono.php:691
+#: class-r34nono.php:697
 msgid "Disallow full site editing (FSE)"
 msgstr ""
 
-#: class-r34nono.php:692
+#. translators: 1. HTML tag 2. HTML tag
+#: class-r34nono.php:699
 #, php-format
 msgid ""
 "Removes the \"Edit site\" link in the admin bar, the \"Editor\" link under "
@@ -257,17 +264,18 @@ msgid ""
 "link%2$s option under \"Admin Bar.\""
 msgstr ""
 
-#: class-r34nono.php:693 class-r34nono.php:717 class-r34nono.php:789
-#: class-r34nono.php:795 class-r34nono.php:801 class-r34nono.php:829
-#: class-r34nono.php:847
+#: class-r34nono.php:700 class-r34nono.php:726 class-r34nono.php:800
+#: class-r34nono.php:806 class-r34nono.php:813 class-r34nono.php:826
+#: class-r34nono.php:862
 msgid "Block Editor"
 msgstr ""
 
-#: class-r34nono.php:697
+#: class-r34nono.php:704
 msgid "Hide admin bar for logged-in non-editors"
 msgstr ""
 
-#: class-r34nono.php:698
+#. translators: 1. HTML tag 2. HTML tag
+#: class-r34nono.php:706
 #, php-format
 msgid ""
 "Hides the admin bar on front-end pages for logged-in users with no editing "
@@ -277,104 +285,106 @@ msgid ""
 "access their profile page and the logout link."
 msgstr ""
 
-#: class-r34nono.php:703
+#: class-r34nono.php:711
 msgid "Limit admin elements for logged-in non-editors"
 msgstr ""
 
-#: class-r34nono.php:704
+#: class-r34nono.php:712
 msgid ""
 "Hides parts of the admin sidebar menu and WordPress footer from logged-in "
 "users with no editing capabilities."
 msgstr ""
 
-#: class-r34nono.php:705 class-r34nono.php:726
+#: class-r34nono.php:713 class-r34nono.php:735
 msgid "Admin Access"
 msgstr ""
 
-#: class-r34nono.php:709
+#: class-r34nono.php:717
 msgid "Replace WP logo with site icon on login screen"
 msgstr ""
 
-#: class-r34nono.php:710
+#: class-r34nono.php:718
 msgid ""
 "Replaces the WordPress logo and link on the login screen with the designated "
 "site icon (if set) and site link. If no icon is present, the WP logo and "
 "link are simply removed."
 msgstr ""
 
-#: class-r34nono.php:711 class-r34nono.php:738 class-r34nono.php:859
+#: class-r34nono.php:719 class-r34nono.php:747 class-r34nono.php:874
 msgid "Login"
 msgstr ""
 
-#: class-r34nono.php:715
+#: class-r34nono.php:723
 msgid "Prevent block directory access"
 msgstr ""
 
-#: class-r34nono.php:716
+#. translators: 1. HTML tag 2. HTML tag
+#: class-r34nono.php:725
 msgid ""
 "Removes the directory for installing new blocks when searching for blocks in "
 "the block editor sidebar."
 msgstr ""
 
-#: class-r34nono.php:721
+#: class-r34nono.php:730
 msgid "Redirect admin to home page for logged-in non-editors"
 msgstr ""
 
-#: class-r34nono.php:722
+#: class-r34nono.php:731
 msgid ""
 "Logged-in users with no editing capabilities (e.g. Subscribers) will be "
 "redirected to the site home page if they try to access any admin pages, "
 "other than their own profile page."
 msgstr ""
 
-#: class-r34nono.php:724
+#: class-r34nono.php:733
 msgid "Also prevent access to profile screen"
 msgstr ""
 
-#: class-r34nono.php:730
+#: class-r34nono.php:739
 msgid "Remove admin color scheme picker"
 msgstr ""
 
-#: class-r34nono.php:731
+#: class-r34nono.php:740
 msgid "Removes the color scheme picker from the user profile page."
 msgstr ""
 
-#: class-r34nono.php:736
+#: class-r34nono.php:745
 msgid "Remove admin email check interval"
 msgstr ""
 
-#: class-r34nono.php:737
+#: class-r34nono.php:746
 msgid "Skips the periodic verification of admin email address upon login."
 msgstr ""
 
-#: class-r34nono.php:742
+#: class-r34nono.php:751
 msgid "Remove admin bar WordPress logo"
 msgstr ""
 
-#: class-r34nono.php:743
+#: class-r34nono.php:752
 msgid "Removes WordPress icon and link from the admin bar."
 msgstr ""
 
-#: class-r34nono.php:748
+#: class-r34nono.php:757
 msgid "Redirect attachment pages to file URL"
 msgstr ""
 
-#: class-r34nono.php:749
+#: class-r34nono.php:758
 msgid ""
 "By default, WordPress creates an \"attachment page\" for every file uploaded "
 "to the Media Library. This setting will redirect those pages to the file URL "
 "itself."
 msgstr ""
 
-#: class-r34nono.php:751
+#: class-r34nono.php:760
 msgid "Return HTTP 404 error instead of redirecting"
 msgstr ""
 
-#: class-r34nono.php:757
+#: class-r34nono.php:766
 msgid "Remove Comments from admin"
 msgstr ""
 
-#: class-r34nono.php:758
+#. translators: 1. HTML tag 2. HTML entity 3. HTML tag
+#: class-r34nono.php:768
 #, php-format
 msgid ""
 "Removes links to Comments in the admin bar and admin sidebar menu. Does not "
@@ -382,89 +392,91 @@ msgid ""
 "%1$sSettings %2$s Discussion%3$s."
 msgstr ""
 
-#: class-r34nono.php:763
+#: class-r34nono.php:773
 msgid "Remove comments from front end"
 msgstr ""
 
-#: class-r34nono.php:764
+#: class-r34nono.php:774
 msgid ""
 "Removes all standard comment output from front-end pages. May not function "
 "properly if theme uses non-standard methods to display comments."
 msgstr ""
 
-#: class-r34nono.php:769
+#: class-r34nono.php:779
 msgid "Remove Dashboard widgets"
 msgstr ""
 
-#: class-r34nono.php:770
+#: class-r34nono.php:780
 msgid "Removes the selected widgets from the WordPress admin dashboard."
 msgstr ""
 
-#: class-r34nono.php:772
+#: class-r34nono.php:782
 msgid "Activity"
 msgstr ""
 
-#: class-r34nono.php:773
+#: class-r34nono.php:783
 msgid "At a Glance"
 msgstr ""
 
-#: class-r34nono.php:774
+#: class-r34nono.php:784
 msgid "Incoming Links"
 msgstr ""
 
-#: class-r34nono.php:775 class-r34nono.php:891
+#: class-r34nono.php:785 class-r34nono.php:908
 msgid "Plugins"
 msgstr ""
 
-#: class-r34nono.php:776
+#: class-r34nono.php:786
 msgid "Quick Draft"
 msgstr ""
 
-#: class-r34nono.php:777
+#: class-r34nono.php:787
 msgid "Recent Comments"
 msgstr ""
 
-#: class-r34nono.php:778
+#: class-r34nono.php:788
 msgid "Recent Drafts"
 msgstr ""
 
-#: class-r34nono.php:779
+#: class-r34nono.php:789
 msgid "Site Health"
 msgstr ""
 
-#: class-r34nono.php:780
+#: class-r34nono.php:790
 msgid "Welcome"
 msgstr ""
 
-#: class-r34nono.php:781
+#: class-r34nono.php:791
 msgid "WordPress Events and News"
 msgstr ""
 
-#: class-r34nono.php:787
+#: class-r34nono.php:797
 msgid "Remove default block patterns"
 msgstr ""
 
-#: class-r34nono.php:788
+#. translators: 1. HTML tag 2. HTML tag
+#: class-r34nono.php:799
 msgid ""
 "Removes the default block patterns from the block editor, leaving only "
 "custom block patterns defined by your theme."
 msgstr ""
 
-#: class-r34nono.php:793
+#: class-r34nono.php:804
 msgid "Remove duotone SVG filters"
 msgstr ""
 
-#: class-r34nono.php:794
+#: class-r34nono.php:805
 msgid ""
 "Removes hardcoded HTML SVG tags for block editor duotone effects that "
 "normally get loaded on every page for Safari users."
 msgstr ""
 
-#: class-r34nono.php:799
+#: class-r34nono.php:810
 msgid "Remove \"Edit site\" link"
 msgstr ""
 
-#: class-r34nono.php:800
+#. translators: 1. HTML tag 2. HTML tag
+#: class-r34nono.php:812
 #, php-format
 msgid ""
 "Removes the full site editing (FSE) link that appears in the admin bar on "
@@ -474,62 +486,22 @@ msgid ""
 "(FSE)%2$s under \"Admin Features\" instead."
 msgstr ""
 
-#: class-r34nono.php:805
-msgid "Remove head tags"
-msgstr ""
-
-#: class-r34nono.php:806
-#, php-format
-msgid "Removes the selected %1$s tags from the %2$s on all front-end pages."
-msgstr ""
-
-#: class-r34nono.php:808
-msgid "EditURI/RSD"
-msgstr ""
-
-#: class-r34nono.php:809
-msgid "oEmbed Discovery Links"
-msgstr ""
-
-#: class-r34nono.php:810
-msgid "Resource Hints"
-msgstr ""
-
-#: class-r34nono.php:811
-msgid "REST API"
-msgstr ""
-
-#: class-r34nono.php:812
-msgid "RSS Feeds"
-msgstr ""
-
-#: class-r34nono.php:813
-msgid "WLW Manifest"
-msgstr ""
-
-#: class-r34nono.php:814
-msgid "WP Generator"
-msgstr ""
-
-#: class-r34nono.php:815
-msgid "WP Shortlink"
-msgstr ""
-
-#: class-r34nono.php:821
+#: class-r34nono.php:817
 msgid "Remove front end Edit links"
 msgstr ""
 
-#: class-r34nono.php:822
+#: class-r34nono.php:818
 msgid ""
 "Removes Edit links that appear within the page layout of certain themes for "
 "logged-in users. Does not affect Edit links in the admin bar."
 msgstr ""
 
-#: class-r34nono.php:827
+#: class-r34nono.php:823
 msgid "Remove global styles (inline CSS)"
 msgstr ""
 
-#: class-r34nono.php:828
+#. translators: 1. HTML tag 2. HTML tag
+#: class-r34nono.php:825
 #, php-format
 msgid ""
 "Removes inline CSS the Block Editor inserts into the head of every page. "
@@ -537,21 +509,64 @@ msgid ""
 "your theme or plugins will still be present."
 msgstr ""
 
-#: class-r34nono.php:833
-msgid "Remove \"Howdy\""
+#: class-r34nono.php:830
+msgid "Remove head tags"
+msgstr ""
+
+#. translators: 1. HTML tag and sample code 2. HTML tag and sample code
+#: class-r34nono.php:832
+#, php-format
+msgid "Removes the selected %1$s tags from the %2$s on all front-end pages."
 msgstr ""
 
 #: class-r34nono.php:834
+msgid "EditURI/RSD"
+msgstr ""
+
+#: class-r34nono.php:835
+msgid "oEmbed Discovery Links"
+msgstr ""
+
+#: class-r34nono.php:836
+msgid "Resource Hints"
+msgstr ""
+
+#: class-r34nono.php:837
+msgid "REST API"
+msgstr ""
+
+#: class-r34nono.php:838
+msgid "RSS Feeds"
+msgstr ""
+
+#: class-r34nono.php:839
+msgid "WLW Manifest"
+msgstr ""
+
+#: class-r34nono.php:840
+msgid "WP Generator"
+msgstr ""
+
+#: class-r34nono.php:841
+msgid "WP Shortlink"
+msgstr ""
+
+#: class-r34nono.php:847
+msgid "Remove \"Howdy\""
+msgstr ""
+
+#: class-r34nono.php:848
 msgid ""
 "Removes \"Howdy\" greeting text (or the corresponding text in other "
 "languages) next to username in admin bar."
 msgstr ""
 
-#: class-r34nono.php:839
+#: class-r34nono.php:853
 msgid "Remove Posts from admin"
 msgstr ""
 
-#: class-r34nono.php:840
+#. translators: 1. HTML tag 2. HTML tag
+#: class-r34nono.php:855
 #, php-format
 msgid ""
 "If you use WordPress as a general-purpose CMS without a blog component, this "
@@ -561,29 +576,29 @@ msgid ""
 "its settings to exclude Posts from your sitemap XML."
 msgstr ""
 
-#: class-r34nono.php:845
+#: class-r34nono.php:860
 msgid "Remove Widgets block editor"
 msgstr ""
 
-#: class-r34nono.php:846
+#: class-r34nono.php:861
 msgid "Restores the previous default functionality of the Widgets page."
 msgstr ""
 
-#: class-r34nono.php:851
+#: class-r34nono.php:866
 msgid "Remove WP emoji"
 msgstr ""
 
-#: class-r34nono.php:852
+#: class-r34nono.php:867
 msgid ""
 "Removes built-in emoji-related WordPress JavaScript code that normally gets "
 "loaded on every page. Also removes emoji tools in the TinyMCE editor."
 msgstr ""
 
-#: class-r34nono.php:857
+#: class-r34nono.php:872
 msgid "Require login"
 msgstr ""
 
-#: class-r34nono.php:858
+#: class-r34nono.php:873
 msgid ""
 "Sends all non-logged-in front end page requests to the login screen. Note: "
 "Does not apply to AJAX, cron, or CLI requests. While not intended to provide "
@@ -591,11 +606,12 @@ msgid ""
 "site during site development."
 msgstr ""
 
-#: class-r34nono.php:863
+#: class-r34nono.php:878
 msgid "Disable XML-RPC"
 msgstr ""
 
-#: class-r34nono.php:864
+#. translators: 1. HTML tag 2. HTML tag 3. HTML tag and filename 4. HTML tag and filename
+#: class-r34nono.php:880
 #, php-format
 msgid ""
 "Most WordPress sites do not use XML-RPC, although some plugins (e.g. "
@@ -609,15 +625,16 @@ msgid ""
 "block calls to %3$s directly in your site&rsquo;s %4$s file."
 msgstr ""
 
-#: class-r34nono.php:866
+#: class-r34nono.php:882
 msgid "Also kill any incoming XML-RPC request"
 msgstr ""
 
-#: class-r34nono.php:873
+#: class-r34nono.php:889
 msgid "Core upgrade skip new bundled"
 msgstr ""
 
-#: class-r34nono.php:874
+#. translators: 1. HTML tag 2. HTML tag 3. HTML tag 4. HTML tag
+#: class-r34nono.php:891
 #, php-format
 msgid ""
 "Skips installing things like new themes that are bundled by default with "
@@ -626,21 +643,21 @@ msgid ""
 "file."
 msgstr ""
 
-#: class-r34nono.php:881
+#: class-r34nono.php:898
 msgid "Disallow theme and plugin file editing"
 msgstr ""
 
-#: class-r34nono.php:882
+#: class-r34nono.php:899
 msgid ""
 "Removes the ability for site admins to edit theme and plugin files directly "
 "within WordPress."
 msgstr ""
 
-#: class-r34nono.php:889
+#: class-r34nono.php:906
 msgid "Restrict admin access"
 msgstr ""
 
-#: class-r34nono.php:890
+#: class-r34nono.php:907
 msgid ""
 "If checked, only users with Editor or Administrator role will be able to see "
 "the Jetpack link in the admin sidebar. Note that in some cases this might "
@@ -651,7 +668,8 @@ msgstr ""
 msgid "Log Out"
 msgstr ""
 
-#: no-nonsense.php:95
+#. translators: 1. HTML tags and plugin name (do not translate) 2. HTML tag and dynamic link URL 3. HTML tags
+#: no-nonsense.php:103
 #, php-format
 msgid ""
 "Thank you for installing %1$s. To get started, please visit the "
@@ -739,25 +757,26 @@ msgid ""
 "and click the \"Save Settings\" button before exporting."
 msgstr ""
 
-#: templates/admin/r34nono-admin.php:217
+#. translators: 1. HTML tags and plugin name (do not translate) 2. HTML tag 3. HTML tag 4. HTML tag and email address
+#: templates/admin/r34nono-admin.php:219
 #, php-format
 msgid ""
 "For support with the %1$s plugin, please use the %2$sWordPress Support "
 "Forums%3$s or email %4$s."
 msgstr ""
 
-#: templates/admin/r34nono-admin.php:229
+#: templates/admin/r34nono-admin.php:232
 msgid ""
 "This plugin is free to use. However, if you find it to be of value, we "
 "welcome your donation (suggested amount: USD $9), to help fund future "
 "development."
 msgstr ""
 
-#: templates/admin/r34nono-admin.php:231
+#: templates/admin/r34nono-admin.php:234
 msgid "Make a Donation"
 msgstr ""
 
-#: templates/admin/r34nono-admin.php:233
+#: templates/admin/r34nono-admin.php:236
 msgid "Thank You!"
 msgstr ""
 

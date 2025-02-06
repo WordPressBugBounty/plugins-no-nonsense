@@ -5,7 +5,7 @@ Tags: remove howdy, remove emoji, remove comments, remove xml-rpc, remove WordPr
 Requires at least: 4.9
 Requires PHP: 7.0.0
 Tested up to: 6.7.1
-Stable tag: 3.6.0
+Stable tag: 3.6.1
 License: GPLv2
 
 The fastest, cleanest way to get rid of the parts of WordPress you don't need.
@@ -25,6 +25,11 @@ After installing the plugin, navigate to **Settings &gt; No Nonsense** to choose
 == Screenshots ==
 
 == Changelog ==
+
+= 3.6.1 - 2025.02.06 =
+
+* Updated translation handling and various other minor adjustments to improve validation with [Plugin Check](https://wordpress.org/plugins/plugin-check/) plugin.
+* i18n: Updated translation strings. Added logic to force loading of embedded translation files rather than the WordPress default community translations. Note: Embedded translation files are machine translated, and may contain errors, but this decision was made after we observed that the community files were not being kept up-to-date. It is our opinion that complete, but slightly inaccurate, translations are preferable to a hodgepodge of half translations and half English. The embedded translation files will always be kept current any time new translatable text is added to the plugin. (Current embedded translation files are limited to German and Dutch.)
 
 = 3.6.0 - 2025.02.04 =
 

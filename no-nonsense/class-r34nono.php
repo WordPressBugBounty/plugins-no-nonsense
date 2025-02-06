@@ -206,6 +206,23 @@ class R34NoNo {
 			'show_in_admin' => true,
 		),
 
+		'r34nono_remove_front_end_edit_links' => array(
+			'hook_type' => 'filter',
+			'hook' => 'edit_post_link',
+			'priority' => 10,
+			'pn' => 0,
+			'cb' => '__return_false',
+			'show_in_admin' => true,
+		),
+
+		'r34nono_remove_global_styles' => array(
+			'hook_type' => 'action',
+			'hook' => 'wp_enqueue_scripts',
+			'priority' => 10,
+			'pn' => 1,
+			'show_in_admin' => true,
+		),
+
 		'r34nono_remove_head_tags' => array(
 			'options' => array(
 				'rsd_link' => '',
@@ -224,23 +241,6 @@ class R34NoNo {
 			'show_in_admin' => true,
 		),
 		
-		'r34nono_remove_front_end_edit_links' => array(
-			'hook_type' => 'filter',
-			'hook' => 'edit_post_link',
-			'priority' => 10,
-			'pn' => 0,
-			'cb' => '__return_false',
-			'show_in_admin' => true,
-		),
-
-		'r34nono_remove_global_styles' => array(
-			'hook_type' => 'action',
-			'hook' => 'wp_enqueue_scripts',
-			'priority' => 10,
-			'pn' => 1,
-			'show_in_admin' => true,
-		),
-
 		'r34nono_remove_howdy' => array(
 			'hook_type' => 'action',
 			'hook' => 'admin_bar_menu',
@@ -440,7 +440,7 @@ class R34NoNo {
 	
 
 	public function admin_enqueue_scripts() {
-		wp_enqueue_script('r34nono-admin', plugin_dir_url(__FILE__) . 'assets/admin-script-min.js', array('jquery'), get_option('r34nono_version'));
+		wp_enqueue_script('r34nono-admin', plugin_dir_url(__FILE__) . 'assets/admin-script-min.js', array('jquery'), get_option('r34nono_version'), true);
 		wp_enqueue_style('r34nono-admin-style', plugin_dir_url(__FILE__) . 'assets/admin-style-min.css', false, get_option('r34nono_version'));
 		wp_enqueue_style('r34nono-admin-bar-style', plugin_dir_url(__FILE__) . 'assets/admin-bar-min.css', false, get_option('r34nono_version'));
 	}
@@ -474,6 +474,7 @@ class R34NoNo {
 			
 			'r34nono_delete_sample_content' => array(
 				'title' => __('Delete sample content', 'no-nonsense'),
+				/* translators: 1. HTML tags 2. HTML tag 3. HTML tag 4. HTML tag */
 				'description' => sprintf(__('Deletes the sample page, post, and comment that are included by default in a new WordPress installation. %1$sWARNING:%2$s This utility deletes these posts based solely on their IDs. If you have %3$sedited%4$s the samples and are actively using them, they will still be deleted!', 'no-nonsense'), '<br /><br /><strong style="color: var(--r34nono-accent-color-1);">', '</strong>', '<em>', '</em>'),
 				'show_in_admin' => true,
 				'has_warning' => true,
@@ -487,11 +488,13 @@ class R34NoNo {
 			
 			'r34nono_remove_default_tagline' => array(
 				'title' => __('Remove default tagline', 'no-nonsense'),
+				/* translators: 1. Additional translated string 2. HTML tags 3. HTML tag */
 				'description' => sprintf(__('Removes the default WordPress tagline ("%1$s"). You will probably want to add your own tagline in its place eventually, but it is easy to forget and it often appears in unexpected places. %2$sNote:%3$s The default tagline was removed in WordPress 6.1. Using this utility with WordPress 6.1 or later will have no effect.', 'no-nonsense'), __('Just another WordPress site', 'no-nonsense'), '<br /><br /><strong>', '</strong>'),
 				'show_in_admin' => true,
 			),
 
 			'r34nono_set_permalink_structure_to_postname' => array(
+				/* translators: 1. HTML tag and sample code */
 				'title' => sprintf(__('Set permalink structure to %1$s', 'no-nonsense'), '<code style="font-weight: normal;">/%postname%/</code>'),
 				'description' => __('Sets the permalink structure to the most commonly used option on modern websites, and flushes rewrite rules.', 'no-nonsense'),
 				'show_in_admin' => true,
@@ -505,6 +508,7 @@ class R34NoNo {
 		if (!defined('WP_ALLOW_MULTISITE') || WP_ALLOW_MULTISITE == false) {
 			$r34nono_utilities['r34nono_delete_inactive_themes'] = array(
 				'title' => __('Delete inactive themes', 'no-nonsense'),
+				/* translators: 1. HTML tags 2. HTML tag */
 				'description' => sprintf(__('Deletes all installed themes except the currently active theme. If your site will be using a custom theme, be sure to activate it prior to running this utility. If the current theme is a child theme, its parent theme will not be deleted. %1$sWARNING:%2$s WordPress Site Health recommends keeping at least one default theme installed. If you wish to follow the recommendation, be sure to reinstall the default theme of your choice after running this utility.', 'no-nonsense'), '<br /><br /><strong style="color: var(--r34nono-accent-color-1);">', '</strong>'),
 				'show_in_admin' => true,
 				'has_warning' => true,
@@ -518,7 +522,7 @@ class R34NoNo {
 		ksort($r34nono_utilities);
 	
 		// Run utilities
-		if (isset($_POST['r34nono-nonce-utilities']) && wp_verify_nonce($_POST['r34nono-nonce-utilities'], 'r34nono-nonce-utilities')) {
+		if (isset($_POST['r34nono-nonce-utilities']) && wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['r34nono-nonce-utilities'])), 'r34nono-nonce-utilities')) {
 			
 			$utilities_completed = array();
 			
@@ -541,7 +545,7 @@ class R34NoNo {
 			}
 
 			// Display admin notice
-			echo '<div class="notice notice-success"><p>' . __('Utilities completed:', 'no-nonsense') . '</p>';
+			echo '<div class="notice notice-success"><p>' . wp_kses_post(__('Utilities completed:', 'no-nonsense')) . '</p>';
 			foreach ($utilities_completed as $item) {
 				echo '<p>' . wp_kses_post($item['status']) . ' &nbsp; ' . wp_kses_post($item['title']) . '</p>';
 			}
@@ -549,7 +553,7 @@ class R34NoNo {
 		}
 	
 		// Update settings
-		if (isset($_POST['r34nono-nonce-settings']) && wp_verify_nonce($_POST['r34nono-nonce-settings'], 'r34nono-nonce-settings')) {
+		if (isset($_POST['r34nono-nonce-settings']) && wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['r34nono-nonce-settings'])), 'r34nono-nonce-settings')) {
 
 			foreach ((array)$_POST as $key => $value) {
 				$key = r34nono_sanitize_string($key);
@@ -565,14 +569,14 @@ class R34NoNo {
 			}
 
 			// Display admin notice
-			echo '<div class="notice notice-success"><p>' . __('Settings updated. You may need to refresh the page to see changes.', 'no-nonsense') . '</p></div>';
+			echo '<div class="notice notice-success"><p>' . wp_kses_post(__('Settings updated. You may need to refresh the page to see changes.', 'no-nonsense')) . '</p></div>';
 		}
 		
 		// Import settings
-		if (isset($_POST['r34nono-nonce-import-export']) && wp_verify_nonce($_POST['r34nono-nonce-import-export'], 'r34nono-nonce-import-export')) {
+		if (isset($_POST['r34nono-nonce-import-export']) && wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['r34nono-nonce-import-export'])), 'r34nono-nonce-import-export')) {
 
 			if (!empty($_POST['r34nono-import-settings-json'])) {
-				$import_settings = json_decode(stripslashes($_POST['r34nono-import-settings-json']), true, 3, JSON_INVALID_UTF8_IGNORE);
+				$import_settings = json_decode(sanitize_textarea_field(wp_unslash($_POST['r34nono-import-settings-json'])), true, 3, JSON_INVALID_UTF8_IGNORE);
 				$json_error = json_last_error_msg();
 				
 				// JSON is valid, continue
@@ -599,16 +603,18 @@ class R34NoNo {
 
 					// Display admin notice
 					if (empty($invalid_lines)) {
-						echo '<div class="notice notice-success"><p>' . __('Your JSON settings were imported.', 'no-nonsense') . '</p></div>';
+						echo '<div class="notice notice-success"><p>' . wp_kses_post(__('Your JSON settings were imported.', 'no-nonsense')) . '</p></div>';
 					}
 					else {
-						echo '<div class="notice notice-warning"><p>' . sprintf(__('Your JSON settings were imported, but %1$s invalid line(s) were skipped.', 'no-nonsense'), intval($invalid_lines)) . '</p></div>';
+						/* translators: 1. Dynamic text string */
+						echo '<div class="notice notice-warning"><p>' . wp_kses_post(sprintf(__('Your JSON settings were imported, but %1$s invalid line(s) were skipped.', 'no-nonsense'), intval($invalid_lines))) . '</p></div>';
 					}
 				}
 				
 				// JSON is invalid, return error message
 				else {
-					echo '<div class="notice notice-error"><p>' . sprintf(__('A JSON error occurred during tne import process: %1$s Please correct any JSON formatting errors and try again.', 'no-nonsense'), '<br /><br /><code>' . $json_error . '</code><br /><br />') . '</p></div>';
+					/* translators: 1. HTML tags and dynamic text string */
+					echo '<div class="notice notice-error"><p>' . wp_kses_post(sprintf(__('A JSON error occurred during tne import process: %1$s Please correct any JSON formatting errors and try again.', 'no-nonsense'), '<br /><br /><code>' . $json_error . '</code><br /><br />')) . '</p></div>';
 				}
 				
 			}
@@ -617,7 +623,7 @@ class R34NoNo {
 			else {
 
 					// Display admin notice
-					echo '<div class="notice notice-warning"><p>' . __('No JSON data was submitted. Settings have not been modified.', 'no-nonsense') . '</p></div>';
+					echo '<div class="notice notice-warning"><p>' . wp_kses_post(__('No JSON data was submitted. Settings have not been modified.', 'no-nonsense')) . '</p></div>';
 				
 			}
 
@@ -689,12 +695,14 @@ class R34NoNo {
 			
 			$this->settings['r34nono_disallow_full_site_editing'] = array_merge($this->settings['r34nono_disallow_full_site_editing'], array(
 				'title' => __('Disallow full site editing (FSE)', 'no-nonsense'),
+				/* translators: 1. HTML tag 2. HTML tag */
 				'description' => sprintf(__('Removes the "Edit site" link in the admin bar, the "Editor" link under "Appearance," and the FSE notice in the Customizer. Also redirects any direct attempts to access the FSE page to the admin dashboard. If this option is active, you do not need to use the %1$sRemove "Edit site" link%2$s option under "Admin Bar."', 'no-nonsense'), '<strong>', '</strong>'),
 				'group' => __('Block Editor', 'no-nonsense'),
 			));
 			
 			$this->settings['r34nono_hide_admin_bar_for_logged_in_non_editors'] = array_merge($this->settings['r34nono_hide_admin_bar_for_logged_in_non_editors'], array(
 				'title' => __('Hide admin bar for logged-in non-editors', 'no-nonsense'),
+				/* translators: 1. HTML tag 2. HTML tag */
 				'description' => sprintf(__('Hides the admin bar on front-end pages for logged-in users with no editing capabilities. Admin bar will still display for these users when they access their profile page. %1$sNote:%2$s With this option turned on, you will need to provide another way on the front end of your site for logged-in users to access their profile page and the logout link.', 'no-nonsense'), '<strong>', '</strong>'),
 				'group' => __('Admin Bar', 'no-nonsense'),
 			));
@@ -713,6 +721,7 @@ class R34NoNo {
 
 			$this->settings['r34nono_prevent_block_directory_access'] = array_merge($this->settings['r34nono_prevent_block_directory_access'], array(
 				'title' => __('Prevent block directory access', 'no-nonsense'),
+				/* translators: 1. HTML tag 2. HTML tag */
 				'description' => sprintf(__('Removes the directory for installing new blocks when searching for blocks in the block editor sidebar.', 'no-nonsense'), '<strong>', '</strong>'),
 				'group' => __('Block Editor', 'no-nonsense'),
 			));
@@ -755,6 +764,7 @@ class R34NoNo {
 
 			$this->settings['r34nono_remove_comments_from_admin'] = array_merge($this->settings['r34nono_remove_comments_from_admin'], array(
 				'title' => __('Remove Comments from admin', 'no-nonsense'),
+				/* translators: 1. HTML tag 2. HTML entity 3. HTML tag */
 				'description' => sprintf(__('Removes links to Comments in the admin bar and admin sidebar menu. Does not actually deactivate comment functionality; this should be done under %1$sSettings %2$s Discussion%3$s.', 'no-nonsense'), '<a href="' . admin_url('options-discussion.php') . '" target="_blank">', '&gt;', '</a>'),
 				'group' => __('Admin Features', 'no-nonsense'),
 			));
@@ -785,6 +795,7 @@ class R34NoNo {
 			
 			$this->settings['r34nono_remove_default_block_patterns'] = array_merge($this->settings['r34nono_remove_default_block_patterns'], array(
 				'title' => __('Remove default block patterns', 'no-nonsense'),
+				/* translators: 1. HTML tag 2. HTML tag */
 				'description' => sprintf(__('Removes the default block patterns from the block editor, leaving only custom block patterns defined by your theme.', 'no-nonsense'), '<strong>', '</strong>'),
 				'group' => __('Block Editor', 'no-nonsense'),
 			));
@@ -797,12 +808,27 @@ class R34NoNo {
 			
 			$this->settings['r34nono_remove_edit_site'] = array_merge($this->settings['r34nono_remove_edit_site'], array(
 				'title' => __('Remove "Edit site" link', 'no-nonsense'),
+				/* translators: 1. HTML tag 2. HTML tag */
 				'description' => sprintf(__('Removes the full site editing (FSE) link that appears in the admin bar on sites that use block themes, to avoid accidentally clicking it when intending to click "Edit Page/Post," but leaves other FSE features in place. To disallow FSE entirely, select %1$sDisallow full site editing (FSE)%2$s under "Admin Features" instead.', 'no-nonsense'), '<strong>', '</strong>'),
+				'group' => __('Block Editor', 'no-nonsense'),
+			));
+
+			$this->settings['r34nono_remove_front_end_edit_links'] = array_merge($this->settings['r34nono_remove_front_end_edit_links'], array(
+				'title' => __('Remove front end Edit links', 'no-nonsense'),
+				'description' => __('Removes Edit links that appear within the page layout of certain themes for logged-in users. Does not affect Edit links in the admin bar.', 'no-nonsense'),
+				'group' => __('Front End', 'no-nonsense'),
+			));
+
+			$this->settings['r34nono_remove_global_styles'] = array_merge($this->settings['r34nono_remove_global_styles'], array(
+				'title' => __('Remove global styles (inline CSS)', 'no-nonsense'),
+				/* translators: 1. HTML tag 2. HTML tag */
+				'description' => sprintf(__('Removes inline CSS the Block Editor inserts into the head of every page. Note that this may not remove %1$sall%2$s inline CSS; styles inserted by your theme or plugins will still be present.', 'no-nonsense'), '<em>', '</em>'),
 				'group' => __('Block Editor', 'no-nonsense'),
 			));
 
 			$this->settings['r34nono_remove_head_tags'] = array_merge($this->settings['r34nono_remove_head_tags'], array(
 				'title' => __('Remove head tags', 'no-nonsense'),
+				/* translators: 1. HTML tag and sample code 2. HTML tag and sample code */
 				'description' => sprintf(__('Removes the selected %1$s tags from the %2$s on all front-end pages.', 'no-nonsense'), '<code>&lt;link&gt;</code>', '<code>&lt;head&gt;</code>'),
 				'options' => array(
 					'rsd_link' => __('EditURI/RSD', 'no-nonsense'),
@@ -817,18 +843,6 @@ class R34NoNo {
 				'group' => __('Front End', 'no-nonsense'),
 			));
 			
-			$this->settings['r34nono_remove_front_end_edit_links'] = array_merge($this->settings['r34nono_remove_front_end_edit_links'], array(
-				'title' => __('Remove front end Edit links', 'no-nonsense'),
-				'description' => __('Removes Edit links that appear within the page layout of certain themes for logged-in users. Does not affect Edit links in the admin bar.', 'no-nonsense'),
-				'group' => __('Front End', 'no-nonsense'),
-			));
-
-			$this->settings['r34nono_remove_global_styles'] = array_merge($this->settings['r34nono_remove_global_styles'], array(
-				'title' => __('Remove global styles (inline CSS)', 'no-nonsense'),
-				'description' => sprintf(__('Removes inline CSS the Block Editor inserts into the head of every page. Note that this may not remove %1$sall%2$s inline CSS; styles inserted by your theme or plugins will still be present.', 'no-nonsense'), '<em>', '</em>'),
-				'group' => __('Block Editor', 'no-nonsense'),
-			));
-
 			$this->settings['r34nono_remove_howdy'] = array_merge($this->settings['r34nono_remove_howdy'], array(
 				'title' => __('Remove "Howdy"', 'no-nonsense'),
 				'description' => __('Removes "Howdy" greeting text (or the corresponding text in other languages) next to username in admin bar.', 'no-nonsense'),
@@ -837,6 +851,7 @@ class R34NoNo {
 
 			$this->settings['r34nono_remove_posts_from_admin'] = array_merge($this->settings['r34nono_remove_posts_from_admin'], array(
 				'title' => __('Remove Posts from admin', 'no-nonsense'),
+				/* translators: 1. HTML tag 2. HTML tag */
 				'description' => sprintf(__('If you use WordPress as a general-purpose CMS without a blog component, this option will hide the Posts link in the main admin navigation. It does %1$snot%2$s deactivate the "Posts" post type itself, nor restrict any front-end content. If you are using an SEO plugin, you will need to adjust its settings to exclude Posts from your sitemap XML.', 'no-nonsense'), '<strong>', '</strong>'),
 				'group' => __('Admin Features', 'no-nonsense'),
 			));
@@ -861,6 +876,7 @@ class R34NoNo {
 
 			$this->settings['r34nono_xmlrpc_disabled'] = array_merge($this->settings['r34nono_xmlrpc_disabled'], array(
 				'title' => __('Disable XML-RPC', 'no-nonsense'),
+					/* translators: 1. HTML tag 2. HTML tag 3. HTML tag and filename 4. HTML tag and filename */
 				'description' => sprintf(__('Most WordPress sites do not use XML-RPC, although some plugins (e.g. Jetpack) and mobile applications may require it. Per changes in WordPress 3.5, turning this option on will only disable XML-RPC requests that require authentication. Use the %1$sAlso kill any incoming XML-RPC request%2$s option below to cause all incoming XML-RPC requests to exit early. (Note: Because this is a plugin-based solution, XML-RPC requests still must partially load, to the point where this plugin is active, before it can kill the process. For better performance during a DDOS attack, you may wish to block calls to %3$s directly in your site&rsquo;s %4$s file.', 'no-nonsense'), '<strong>', '</strong>', '<code>xmlrpc.php</code>', '<code>.htaccess</code>'),
 				'options' => array(
 					'kill_requests' => __('Also kill any incoming XML-RPC request', 'no-nonsense'),
@@ -871,6 +887,7 @@ class R34NoNo {
 			if (isset($this->settings['r34nono_core_upgrade_skip_new_bundled'])) {
 				$this->settings['r34nono_core_upgrade_skip_new_bundled'] = array_merge($this->settings['r34nono_core_upgrade_skip_new_bundled'], array(
 					'title' => __('Core upgrade skip new bundled', 'no-nonsense'),
+					/* translators: 1. HTML tag 2. HTML tag 3. HTML tag 4. HTML tag */
 					'description' => sprintf(__('Skips installing things like new themes that are bundled by default with WordPress core upgrades. This can also be handled manually by adding the %1$sCORE_UPGRADE_SKIP_NEW_BUNDLED%2$s constant in your %3$swp-config.php%4$s file.', 'no-nonsense'), '<code>', '</code>', '<code>', '</code>'),
 					'group' => __('Security and Updates', 'no-nonsense'),
 				));

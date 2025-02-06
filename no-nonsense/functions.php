@@ -39,7 +39,7 @@ function r34nono_admin_bar_logout_link_admin_bar_menu_callback($wp_admin_bar) {
 			'class' => 'r34nono-important',
 		),
 		'parent' => 'top-secondary',
-		'title' => __('Log Out'),
+		'title' => __('Log Out', 'no-nonsense'),
 	));
 }
 
@@ -191,7 +191,7 @@ function r34nono_limit_admin_elements_for_logged_in_non_editors() {
 function r34nono_login_replace_wp_logo_link() {
 	if (has_site_icon()) {
 		?>
-		<style type="text/css">.login h1 a { background-image: url('<?php echo get_site_icon_url(192); ?>') !important; border-radius: 16px; }</style>
+		<style type="text/css">.login h1 a { background-image: url('<?php echo esc_url(get_site_icon_url(192)); ?>') !important; border-radius: 16px; }</style>
 		<?php
 	}
 	else {
@@ -533,7 +533,7 @@ function r34nono_remove_default_tagline() {
 	$return = false;
 	if (
 		get_option('blogdescription') == __('Just another WordPress site', 'no-nonsense') ||
-		get_option('blogdescription') == __('Just another WordPress site') // @todo Do we need this?
+		get_option('blogdescription') == __('Just another WordPress site') // Note: Deliberately omits text domain to match WordPress core translation!
 	) {
 		if (update_option('blogdescription', '')) { $return = true; }
 	}
@@ -562,10 +562,10 @@ function r34nono_admin_colors_css_variables() {
 				?>
 				<style>
 					body {
-						--r34nono--admin-color--primary: <?php echo $admin_color_scheme->colors[$count - 2]; ?>;
-						--r34nono--admin-color--secondary: <?php echo $admin_color_scheme->colors[$count - 1]; ?>;
-						--r34nono--admin-color--primary-text: <?php echo r34nono_color_text4bg($admin_color_scheme->colors[$count - 2]); ?>;
-						--r34nono--admin-color--secondary-text: <?php echo r34nono_color_text4bg($admin_color_scheme->colors[$count - 1]); ?>;
+						--r34nono--admin-color--primary: <?php echo esc_attr($admin_color_scheme->colors[$count - 2]); ?>;
+						--r34nono--admin-color--secondary: <?php echo esc_attr($admin_color_scheme->colors[$count - 1]); ?>;
+						--r34nono--admin-color--primary-text: <?php echo esc_attr(r34nono_color_text4bg($admin_color_scheme->colors[$count - 2])); ?>;
+						--r34nono--admin-color--secondary-text: <?php echo esc_attr(r34nono_color_text4bg($admin_color_scheme->colors[$count - 1])); ?>;
 					}
 				</style>
 				<?php
@@ -610,5 +610,5 @@ function r34nono_color_text4bg($hex='', $trimhash=false) {
 
 // Replacement for FILTER_SANITIZE_STRING deprecated in PHP 8.1
 function r34nono_sanitize_string($str) {
-	return strip_tags(htmlspecialchars($str));
+	return wp_strip_all_tags(htmlspecialchars($str));
 }

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: No Nonsense\n"
 "POT-Creation-Date: 2025-02-04 11:17-0600\n"
-"PO-Revision-Date: 2025-02-04 11:17-0600\n"
+"PO-Revision-Date: 2025-02-06 12:41-0600\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de\n"
@@ -212,7 +212,7 @@ msgstr ""
 #: class-r34nono.php:657 class-r34nono.php:699 class-r34nono.php:744
 #: class-r34nono.php:835
 msgid "Admin Bar"
-msgstr "Admin-Leiste"
+msgstr "Adminleiste"
 
 #: class-r34nono.php:661
 msgid "Auto core update send email only on error"
@@ -231,7 +231,7 @@ msgstr ""
 
 #: class-r34nono.php:663 class-r34nono.php:868 class-r34nono.php:875
 msgid "Security and Updates"
-msgstr "Sicherheit und Updates"
+msgstr "Sicherheit und Aktualisierungen"
 
 #: class-r34nono.php:667
 msgid "Disable author archives"
@@ -271,7 +271,7 @@ msgstr ""
 #: class-r34nono.php:759 class-r34nono.php:783 class-r34nono.php:841
 #: class-r34nono.php:883
 msgid "Admin Features"
-msgstr "Verwaltungsfunktionen"
+msgstr "Admin-Funktionen"
 
 #: class-r34nono.php:679
 msgid "Disable site search"
@@ -326,7 +326,7 @@ msgstr ""
 #: class-r34nono.php:795 class-r34nono.php:801 class-r34nono.php:829
 #: class-r34nono.php:847
 msgid "Block Editor"
-msgstr "Blockeditor"
+msgstr "Block Editor"
 
 #: class-r34nono.php:697
 msgid "Hide admin bar for logged-in non-editors"
@@ -364,7 +364,7 @@ msgstr ""
 
 #: class-r34nono.php:705 class-r34nono.php:726
 msgid "Admin Access"
-msgstr "Admin Zugriff"
+msgstr "Admin-Zugang"
 
 #: class-r34nono.php:709
 msgid "Replace WP logo with site icon on login screen"
@@ -843,7 +843,7 @@ msgstr "Aus"
 
 #: templates/admin/r34nono-admin.php:74
 msgid "On"
-msgstr "An"
+msgstr "Ein"
 
 #: templates/admin/r34nono-admin.php:125
 msgid ""
