@@ -3,7 +3,7 @@
 Plugin Name: No Nonsense
 Plugin URI: https://nononsensewp.com
 Description: The fastest, cleanest way to get rid of the parts of WordPress you don't need.
-Version: 3.6.1
+Version: 3.6.1.1
 Requires at least: 4.9
 Requires PHP: 7.0
 Author: Room 34 Creative Services, LLC
@@ -88,6 +88,9 @@ function r34nono_i18n_locales() {
 	$locales = get_option('r34nono_i18n_locales');
 	if (empty($locales)) {
 		$locales = array();
+		if (!function_exists('list_files')) {
+			include_once(ABSPATH . 'wp-admin/includes/file.php');
+		}
 		$files = list_files(plugin_dir_path(__FILE__) . '/i18n/languages', 1);
 		foreach ((array)$files as $file) {
 			if (pathinfo($file, PATHINFO_EXTENSION) == 'mo') {

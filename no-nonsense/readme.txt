@@ -5,7 +5,7 @@ Tags: remove howdy, remove emoji, remove comments, remove xml-rpc, remove WordPr
 Requires at least: 4.9
 Requires PHP: 7.0.0
 Tested up to: 6.7.1
-Stable tag: 3.6.1
+Stable tag: 3.6.1.1
 License: GPLv2
 
 The fastest, cleanest way to get rid of the parts of WordPress you don't need.
@@ -25,6 +25,10 @@ After installing the plugin, navigate to **Settings &gt; No Nonsense** to choose
 == Screenshots ==
 
 == Changelog ==
+
+= 3.6.1.1 - 2025.02.07 =
+
+* Bug fix: Resolved possible fatal error caused if new `r34nono_i18n_locales()` function added in 3.6.1 runs on a logged-out front-end page.
 
 = 3.6.1 - 2025.02.06 =
 
