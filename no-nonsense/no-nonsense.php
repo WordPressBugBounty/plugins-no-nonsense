@@ -3,7 +3,7 @@
 Plugin Name: No Nonsense
 Plugin URI: https://nononsensewp.com
 Description: The fastest, cleanest way to get rid of the parts of WordPress you don't need.
-Version: 3.6.1.1
+Version: 3.6.2
 Requires at least: 4.9
 Requires PHP: 7.0
 Author: Room 34 Creative Services, LLC
@@ -14,7 +14,7 @@ Domain Path: /i18n/languages/
 */
 
 /*
-  Copyright 2024 Room 34 Creative Services, LLC (email: info@room34.com)
+  Copyright 2025 Room 34 Creative Services, LLC (email: info@room34.com)
 
 	This program is free software; you can redistribute it and/or modify
 	it under the terms of the GNU General Public License, version 2, as 

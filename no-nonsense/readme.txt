@@ -4,8 +4,8 @@ Donate link: https://room34.com/payments
 Tags: remove howdy, remove emoji, remove comments, remove xml-rpc, remove WordPress logo
 Requires at least: 4.9
 Requires PHP: 7.0.0
-Tested up to: 6.7.1
-Stable tag: 3.6.1.1
+Tested up to: 6.7.2
+Stable tag: 3.6.2
 License: GPLv2
 
 The fastest, cleanest way to get rid of the parts of WordPress you don't need.
@@ -25,6 +25,13 @@ After installing the plugin, navigate to **Settings &gt; No Nonsense** to choose
 == Screenshots ==
 
 == Changelog ==
+
+= 3.6.2 - 2025.03.26 =
+
+* Added server IP address to sidebar on admin page, and also to the **Server** section of the **Site Health** page. Server IP address value may vary in configurations using load balancing; regardless, the absence of this value anywhere on the Site Health page seems to be a curious oversight. There is no ready means within WordPress admin to determine the IP address of the server, which can be useful in situations where a site is being moved, and an admin wants to determine if they're accessing the new server or the old server. (If you believe there is any way that the server IP address is sensitive _in the context of the Site Health screen_ please let me know in the [support forum](https://wordpress.org/support/plugin/no-nonsense/).)
+* Changed help text for the **Remove Comments from admin** option.
+* i18n: Updated translation strings.
+* Bumped *Tested up to* to 6.7.2.
 
 = 3.6.1.1 - 2025.02.07 =
 

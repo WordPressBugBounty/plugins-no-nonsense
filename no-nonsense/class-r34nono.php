@@ -379,6 +379,9 @@ class R34NoNo {
 		// Add our hooks, allowing plugins/theme to modify first
 		add_action('after_setup_theme', array(&$this, 'add_hooks'), 9);
 		
+		// Add data to Site Health screen
+		add_action('debug_information', array(&$this, 'debug_information'));
+		
 		// Add plugin action links
 		add_filter('plugin_action_links_no-nonsense/no-nonsense.php', array($this, 'admin_plugin_action_links'));
 	
@@ -633,6 +636,18 @@ class R34NoNo {
 		include_once(plugin_dir_path(__FILE__) . 'templates/admin/r34nono-admin.php');
 
 	}
+	
+	
+	public function debug_information($debug_info) {
+	
+		// Add server IP address to the "Server" section
+		$debug_info['wp-server']['fields']['server-ip-address'] = array(
+			'label' => __('Server IP address', 'no-nonsense'),
+			'value' => $_SERVER['SERVER_ADDR'],
+		);
+		
+		return $debug_info;
+	}
 
 	
 	public function enqueue_scripts() {
@@ -764,8 +779,8 @@ class R34NoNo {
 
 			$this->settings['r34nono_remove_comments_from_admin'] = array_merge($this->settings['r34nono_remove_comments_from_admin'], array(
 				'title' => __('Remove Comments from admin', 'no-nonsense'),
-				/* translators: 1. HTML tag 2. HTML entity 3. HTML tag */
-				'description' => sprintf(__('Removes links to Comments in the admin bar and admin sidebar menu. Does not actually deactivate comment functionality; this should be done under %1$sSettings %2$s Discussion%3$s.', 'no-nonsense'), '<a href="' . admin_url('options-discussion.php') . '" target="_blank">', '&gt;', '</a>'),
+				/* translators: 1. HTML tag 2. HTML tag 3. HTML tag 4. HTML tag */
+				'description' => sprintf(__('Removes links to Comments in the admin bar and admin sidebar menu. Does not deactivate comment functionality; this can be done with the %1$sDisable all comments and trackbacks%2$s option under the %3$sUtilities%4$s tab above.', 'no-nonsense'), '<strong>', '</strong>', '<strong>', '</strong>'),
 				'group' => __('Admin Features', 'no-nonsense'),
 			));
 			

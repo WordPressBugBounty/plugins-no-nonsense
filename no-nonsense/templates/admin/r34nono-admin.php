@@ -239,7 +239,9 @@ global $r34nono;
 		
 			</div>
 		
-			<p><small>No Nonsense v. <?php echo wp_kses_post(get_option('r34nono_version')); ?></small></p>
+			<p><small>No Nonsense v. <?php echo wp_kses_post(get_option('r34nono_version')); ?><br />
+			<?php esc_html_e('Server IP address:'); ?>
+			<?php echo wp_kses_post($_SERVER['SERVER_ADDR']); ?></small></p>
 		
 		</div>
 	
