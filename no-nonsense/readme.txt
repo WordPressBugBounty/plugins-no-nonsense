@@ -4,8 +4,8 @@ Donate link: https://room34.com/payments
 Tags: remove howdy, remove emoji, remove comments, remove xml-rpc, remove WordPress logo
 Requires at least: 4.9
 Requires PHP: 7.0.0
-Tested up to: 6.7.2
-Stable tag: 3.6.2
+Tested up to: 6.8
+Stable tag: 3.6.3
 License: GPLv2
 
 The fastest, cleanest way to get rid of the parts of WordPress you don't need.
@@ -25,6 +25,13 @@ After installing the plugin, navigate to **Settings &gt; No Nonsense** to choose
 == Screenshots ==
 
 == Changelog ==
+
+= 3.6.3 - 2025.04.15 =
+
+* Changed name of **Disallow full site editing (FSE)** option to **Disable Site Editor / Full Site Editing (FSE)**.
+* Added option to allow access to **Patterns** even when Site Editor is disabled. (Note: Currently this does not functionally restrict access to other Site Editor pages, although there are no links to them.)
+* i18n: Updated translation strings.
+* Bumped *Tested up to* to 6.8.
 
 = 3.6.2 - 2025.03.26 =
 

@@ -2,35 +2,34 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: No Nonsense\n"
-"POT-Creation-Date: 2025-03-26 09:15-0500\n"
-"PO-Revision-Date: 2025-03-26 09:17-0500\n"
+"POT-Creation-Date: 2025-04-15 12:29-0500\n"
+"PO-Revision-Date: 2025-04-15 12:29-0500\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.5\n"
+"X-Generator: Poedit 3.6\n"
 "X-Poedit-Basepath: ../..\n"
 "X-Poedit-Flags-xgettext: --add-comments=translators:\n"
 "X-Poedit-WPHeader: no-nonsense.php\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
-"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
-"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-KeywordsList: "
+"__;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.min.js\n"
 
-#: class-r34nono.php:439 templates/admin/r34nono-admin.php:22
+#: class-r34nono.php:442 templates/admin/r34nono-admin.php:22
 #: templates/admin/r34nono-admin.php:49
 msgid "Settings"
 msgstr "Instellingen"
 
-#: class-r34nono.php:467
+#: class-r34nono.php:470
 msgid "Deactivate and delete Akismet Anti-Spam plugin"
 msgstr "Akismet Anti-Spam plugin deactiveren en verwijderen"
 
-#: class-r34nono.php:468
+#: class-r34nono.php:471
 msgid ""
 "Deactivates and deletes the Akismet Anti-Spam plugin that is included in the "
 "default WordPress installation."
@@ -38,11 +37,11 @@ msgstr ""
 "Deactiveert en verwijdert de Akismet Anti-Spam plugin die is opgenomen in de "
 "standaard WordPress installatie."
 
-#: class-r34nono.php:473
+#: class-r34nono.php:476
 msgid "Deactivate and delete Hello Dolly plugin"
 msgstr "Deactiveer en verwijder Hello Dolly plugin"
 
-#: class-r34nono.php:474
+#: class-r34nono.php:477
 msgid ""
 "Deactivates and deletes the Hello Dolly plugin that is included in the "
 "default WordPress installation."
@@ -50,12 +49,12 @@ msgstr ""
 "Deactiveert en verwijdert de Hello Dolly plugin die is opgenomen in de "
 "standaard WordPress installatie."
 
-#: class-r34nono.php:479
+#: class-r34nono.php:482
 msgid "Delete sample content"
 msgstr "Voorbeeldinhoud verwijderen"
 
 #. translators: 1. HTML tags 2. HTML tag 3. HTML tag 4. HTML tag
-#: class-r34nono.php:481
+#: class-r34nono.php:484
 #, php-format
 msgid ""
 "Deletes the sample page, post, and comment that are included by default in a "
@@ -69,11 +68,11 @@ msgstr ""
 "%3$sde voorbeelden hebt bewerkt%4$s en ze actief gebruikt, worden ze nog "
 "steeds verwijderd!"
 
-#: class-r34nono.php:487
+#: class-r34nono.php:490
 msgid "Disable all comments and trackbacks"
 msgstr "Alle reacties en trackbacks uitschakelen"
 
-#: class-r34nono.php:488
+#: class-r34nono.php:491
 msgid ""
 "Sets comments and trackbacks to \"closed\" on all existing content. Also "
 "turns off the WordPress \"Allow link notifications from other blogs "
@@ -85,12 +84,12 @@ msgstr ""
 "(pingbacks en trackbacks) bij nieuwe berichten\" en \"Mensen toestaan om "
 "opmerkingen in te dienen bij nieuwe berichten\" uit."
 
-#: class-r34nono.php:493
+#: class-r34nono.php:496
 msgid "Remove default tagline"
 msgstr "Standaard tagline verwijderen"
 
 #. translators: 1. Additional translated string 2. HTML tags 3. HTML tag
-#: class-r34nono.php:495
+#: class-r34nono.php:498
 #, php-format
 msgid ""
 "Removes the default WordPress tagline (\"%1$s\"). You will probably want to "
@@ -105,17 +104,17 @@ msgstr ""
 "standaard tagline is verwijderd in WordPress 6.1. Het gebruik van dit "
 "hulpprogramma met WordPress 6.1 of later heeft geen effect."
 
-#: class-r34nono.php:495 functions.php:535 functions.php:536
+#: class-r34nono.php:498 functions.php:543 functions.php:544
 msgid "Just another WordPress site"
 msgstr "Nog een WordPress-site"
 
 #. translators: 1. HTML tag and sample code
-#: class-r34nono.php:501
+#: class-r34nono.php:504
 #, php-format
 msgid "Set permalink structure to %1$s"
 msgstr "Zet permalink-structuur op %1$s"
 
-#: class-r34nono.php:502
+#: class-r34nono.php:505
 msgid ""
 "Sets the permalink structure to the most commonly used option on modern "
 "websites, and flushes rewrite rules."
@@ -123,12 +122,12 @@ msgstr ""
 "Stelt de permalink-structuur in op de meest gebruikte optie op moderne "
 "websites en spoelt de herschrijfregels door."
 
-#: class-r34nono.php:513
+#: class-r34nono.php:516
 msgid "Delete inactive themes"
 msgstr "Inactieve thema's verwijderen"
 
 #. translators: 1. HTML tags 2. HTML tag
-#: class-r34nono.php:515
+#: class-r34nono.php:518
 #, php-format
 msgid ""
 "Deletes all installed themes except the currently active theme. If your site "
@@ -148,34 +147,34 @@ msgstr ""
 "opvolgen, installeer dan het standaardthema van je keuze opnieuw nadat je "
 "dit hulpprogramma hebt uitgevoerd."
 
-#: class-r34nono.php:538
+#: class-r34nono.php:541
 msgid "Utility executed successfully."
 msgstr "Utility succesvol uitgevoerd."
 
-#: class-r34nono.php:538
+#: class-r34nono.php:541
 msgid "Utility executed, but with no effect or possible errors."
 msgstr "Utility uitgevoerd, maar zonder effect of mogelijke fouten."
 
-#: class-r34nono.php:544
+#: class-r34nono.php:547
 msgid "Utility could not execute; requested function does not exist."
 msgstr "Utility kon niet worden uitgevoerd; aangevraagde functie bestaat niet."
 
-#: class-r34nono.php:551
+#: class-r34nono.php:554
 msgid "Utilities completed:"
 msgstr "Nutsvoorzieningen voltooid:"
 
-#: class-r34nono.php:575
+#: class-r34nono.php:578
 msgid "Settings updated. You may need to refresh the page to see changes."
 msgstr ""
 "Instellingen bijgewerkt. Mogelijk moet u de pagina vernieuwen om de "
 "wijzigingen te zien."
 
-#: class-r34nono.php:609
+#: class-r34nono.php:612
 msgid "Your JSON settings were imported."
 msgstr "Je JSON-instellingen zijn geïmporteerd."
 
 #. translators: 1. Dynamic text string
-#: class-r34nono.php:613
+#: class-r34nono.php:616
 #, php-format
 msgid ""
 "Your JSON settings were imported, but %1$s invalid line(s) were skipped."
@@ -184,7 +183,7 @@ msgstr ""
 "overgeslagen."
 
 #. translators: 1. HTML tags and dynamic text string
-#: class-r34nono.php:620
+#: class-r34nono.php:623
 #, php-format
 msgid ""
 "A JSON error occurred during tne import process: %1$s Please correct any "
@@ -193,20 +192,20 @@ msgstr ""
 "Er is een JSON-fout opgetreden tijdens het importeren: %1$s Corrigeer "
 "eventuele JSON-opmaakfouten en probeer het opnieuw."
 
-#: class-r34nono.php:629
+#: class-r34nono.php:632
 msgid "No JSON data was submitted. Settings have not been modified."
 msgstr ""
 "Er zijn geen JSON-gegevens verzonden. Instellingen zijn niet gewijzigd."
 
-#: class-r34nono.php:645
+#: class-r34nono.php:648
 msgid "Server IP address"
 msgstr "IP-adres server"
 
-#: class-r34nono.php:676
+#: class-r34nono.php:679
 msgid "Admin bar logout link"
 msgstr "Uitloglink beheerdersbalk"
 
-#: class-r34nono.php:677
+#: class-r34nono.php:680
 msgid ""
 "Adds a color-highlighted logout link directly into the admin bar, next to "
 "the username. Helpful to remind users to log out when their session is done."
@@ -215,16 +214,16 @@ msgstr ""
 "gebruikersnaam. Handig om gebruikers eraan te herinneren uit te loggen als "
 "hun sessie klaar is."
 
-#: class-r34nono.php:678 class-r34nono.php:722 class-r34nono.php:768
-#: class-r34nono.php:864
+#: class-r34nono.php:681 class-r34nono.php:728 class-r34nono.php:774
+#: class-r34nono.php:870
 msgid "Admin Bar"
 msgstr "Admin balk"
 
-#: class-r34nono.php:682
+#: class-r34nono.php:685
 msgid "Auto core update send email only on error"
 msgstr "Automatische kernupdate verstuurt e-mail alleen bij fout"
 
-#: class-r34nono.php:683
+#: class-r34nono.php:686
 msgid ""
 "By default, site admins receive a notification email every time WordPress "
 "runs auto-updates. Turn this on to only receive emails if there is an error "
@@ -234,15 +233,15 @@ msgstr ""
 "WordPress automatische updates uitvoert. Schakel dit in om alleen e-mails te "
 "ontvangen als er een fout optreedt tijdens het updateproces."
 
-#: class-r34nono.php:684 class-r34nono.php:899 class-r34nono.php:907
+#: class-r34nono.php:687 class-r34nono.php:905 class-r34nono.php:913
 msgid "Security and Updates"
 msgstr "Beveiliging en updates"
 
-#: class-r34nono.php:688
+#: class-r34nono.php:691
 msgid "Disable author archives"
 msgstr "Auteursarchieven uitschakelen"
 
-#: class-r34nono.php:689
+#: class-r34nono.php:692
 msgid ""
 "Many sites have no need for the auto-generated author archive pages, and "
 "many site admins may not even realize these pages exist, yet they can be "
@@ -255,17 +254,17 @@ msgstr ""
 "gecrawld. Schakel deze optie in om de archiefpagina's van auteurs uit te "
 "schakelen."
 
-#: class-r34nono.php:690 class-r34nono.php:702 class-r34nono.php:777
-#: class-r34nono.php:790 class-r34nono.php:834 class-r34nono.php:858
-#: class-r34nono.php:883
+#: class-r34nono.php:693 class-r34nono.php:705 class-r34nono.php:783
+#: class-r34nono.php:796 class-r34nono.php:840 class-r34nono.php:864
+#: class-r34nono.php:889
 msgid "Front End"
 msgstr "Voorkant"
 
-#: class-r34nono.php:694
+#: class-r34nono.php:697
 msgid "Disable Post Via Email"
 msgstr "Posten via e-mail uitschakelen"
 
-#: class-r34nono.php:695
+#: class-r34nono.php:698
 msgid ""
 "Removes configuration settings for \"Post Via Email\" on the Writing "
 "Settings page, and turns off the feature."
@@ -273,17 +272,17 @@ msgstr ""
 "Verwijdert de configuratie-instellingen voor \"Posten via e-mail\" op de "
 "pagina Schrijfinstellingen en schakelt de functie uit."
 
-#: class-r34nono.php:696 class-r34nono.php:708 class-r34nono.php:756
-#: class-r34nono.php:784 class-r34nono.php:808 class-r34nono.php:871
-#: class-r34nono.php:915
+#: class-r34nono.php:699 class-r34nono.php:711 class-r34nono.php:762
+#: class-r34nono.php:790 class-r34nono.php:814 class-r34nono.php:877
+#: class-r34nono.php:921
 msgid "Admin Features"
 msgstr "Beheerfuncties"
 
-#: class-r34nono.php:700
+#: class-r34nono.php:703
 msgid "Disable site search"
 msgstr "Zoeken op site uitschakelen"
 
-#: class-r34nono.php:701
+#: class-r34nono.php:704
 msgid ""
 "If your site does not need search functionality, turn this on to cause all "
 "standard WordPress search URLs to redirect to the home page without "
@@ -296,11 +295,11 @@ msgstr ""
 "invloed op de zoekfunctionaliteit van de beheerder. Deactiveert ook de "
 "zoekwidget."
 
-#: class-r34nono.php:706
+#: class-r34nono.php:709
 msgid "Disable Update Services"
 msgstr "Update-services uitschakelen"
 
-#: class-r34nono.php:707
+#: class-r34nono.php:710
 msgid ""
 "Removes configuration settings for \"Update Services\" on the Writing "
 "Settings page, and turns off the feature."
@@ -308,12 +307,12 @@ msgstr ""
 "Verwijdert de configuratie-instellingen voor \"Update Services\" op de "
 "pagina Schrijfinstellingen en schakelt de functie uit."
 
-#: class-r34nono.php:712
-msgid "Disallow full site editing (FSE)"
-msgstr "Volledige sitebewerking (FSE) niet toestaan"
+#: class-r34nono.php:715
+msgid "Disable Site Editor / Full Site Editing (FSE)"
+msgstr "Site-editor / volledige sitebewerking (FSE) uitschakelen"
 
 #. translators: 1. HTML tag 2. HTML tag
-#: class-r34nono.php:714
+#: class-r34nono.php:717
 #, php-format
 msgid ""
 "Removes the \"Edit site\" link in the admin bar, the \"Editor\" link under "
@@ -328,18 +327,22 @@ msgstr ""
 "Als deze optie actief is, hoeft u de optie %1$sVerwijder link \"Site "
 "bewerken\"%2$s onder \"Beheerderbalk\" niet te gebruiken"
 
-#: class-r34nono.php:715 class-r34nono.php:741 class-r34nono.php:815
-#: class-r34nono.php:821 class-r34nono.php:828 class-r34nono.php:841
-#: class-r34nono.php:877
+#: class-r34nono.php:719
+msgid "Allow access to Patterns (under Appearance menu)"
+msgstr "Toegang verlenen tot Patronen (onder het menu Uiterlijk)"
+
+#: class-r34nono.php:721 class-r34nono.php:747 class-r34nono.php:821
+#: class-r34nono.php:827 class-r34nono.php:834 class-r34nono.php:847
+#: class-r34nono.php:883
 msgid "Block Editor"
 msgstr "Blok editor"
 
-#: class-r34nono.php:719
+#: class-r34nono.php:725
 msgid "Hide admin bar for logged-in non-editors"
 msgstr "Beheerbalk verbergen voor ingelogde niet-editors"
 
 #. translators: 1. HTML tag 2. HTML tag
-#: class-r34nono.php:721
+#: class-r34nono.php:727
 #, php-format
 msgid ""
 "Hides the admin bar on front-end pages for logged-in users with no editing "
@@ -355,11 +358,11 @@ msgstr ""
 "op de voorkant van je site voorzien voor ingelogde gebruikers om toegang te "
 "krijgen tot hun profielpagina en de uitloglink."
 
-#: class-r34nono.php:726
+#: class-r34nono.php:732
 msgid "Limit admin elements for logged-in non-editors"
 msgstr "Beheerelementen beperken voor ingelogde niet-editors"
 
-#: class-r34nono.php:727
+#: class-r34nono.php:733
 msgid ""
 "Hides parts of the admin sidebar menu and WordPress footer from logged-in "
 "users with no editing capabilities."
@@ -367,15 +370,15 @@ msgstr ""
 "Verbergt delen van het admin zijbalkmenu en de WordPress footer voor "
 "ingelogde gebruikers zonder bewerkingsmogelijkheden."
 
-#: class-r34nono.php:728 class-r34nono.php:750
+#: class-r34nono.php:734 class-r34nono.php:756
 msgid "Admin Access"
 msgstr "Beheerderstoegang"
 
-#: class-r34nono.php:732
+#: class-r34nono.php:738
 msgid "Replace WP logo with site icon on login screen"
 msgstr "WP-logo vervangen door site-icoon op inlogscherm"
 
-#: class-r34nono.php:733
+#: class-r34nono.php:739
 msgid ""
 "Replaces the WordPress logo and link on the login screen with the designated "
 "site icon (if set) and site link. If no icon is present, the WP logo and "
@@ -385,16 +388,16 @@ msgstr ""
 "aangewezen sitepictogram (indien ingesteld) en de sitelink. Als er geen "
 "pictogram aanwezig is, worden het WP logo en de link gewoon verwijderd."
 
-#: class-r34nono.php:734 class-r34nono.php:762 class-r34nono.php:889
+#: class-r34nono.php:740 class-r34nono.php:768 class-r34nono.php:895
 msgid "Login"
 msgstr "Inloggen"
 
-#: class-r34nono.php:738
+#: class-r34nono.php:744
 msgid "Prevent block directory access"
 msgstr "Toegang tot directory blokkeren voorkomen"
 
 #. translators: 1. HTML tag 2. HTML tag
-#: class-r34nono.php:740
+#: class-r34nono.php:746
 msgid ""
 "Removes the directory for installing new blocks when searching for blocks in "
 "the block editor sidebar."
@@ -402,11 +405,11 @@ msgstr ""
 "Verwijdert de map voor het installeren van nieuwe blokken bij het zoeken "
 "naar blokken in de zijbalk van de blokkeneditor."
 
-#: class-r34nono.php:745
+#: class-r34nono.php:751
 msgid "Redirect admin to home page for logged-in non-editors"
 msgstr "Beheerder omleiden naar startpagina voor ingelogde niet-redacteuren"
 
-#: class-r34nono.php:746
+#: class-r34nono.php:752
 msgid ""
 "Logged-in users with no editing capabilities (e.g. Subscribers) will be "
 "redirected to the site home page if they try to access any admin pages, "
@@ -416,41 +419,41 @@ msgstr ""
 "doorgestuurd naar de startpagina van de site als ze toegang proberen te "
 "krijgen tot andere beheerpagina's dan hun eigen profielpagina."
 
-#: class-r34nono.php:748
+#: class-r34nono.php:754
 msgid "Also prevent access to profile screen"
 msgstr "Voorkom ook toegang tot het profielscherm"
 
-#: class-r34nono.php:754
+#: class-r34nono.php:760
 msgid "Remove admin color scheme picker"
 msgstr "Kleurenschema kiezer verwijderen"
 
-#: class-r34nono.php:755
+#: class-r34nono.php:761
 msgid "Removes the color scheme picker from the user profile page."
 msgstr "Verwijdert de kleurenschema kiezer van de gebruikersprofielpagina."
 
-#: class-r34nono.php:760
+#: class-r34nono.php:766
 msgid "Remove admin email check interval"
 msgstr "Verwijder admin e-mail controle interval"
 
-#: class-r34nono.php:761
+#: class-r34nono.php:767
 msgid "Skips the periodic verification of admin email address upon login."
 msgstr ""
 "De periodieke verificatie van het e-mailadres van de beheerder bij het "
 "inloggen wordt overgeslagen."
 
-#: class-r34nono.php:766
+#: class-r34nono.php:772
 msgid "Remove admin bar WordPress logo"
 msgstr "Admin balk WordPress logo verwijderen"
 
-#: class-r34nono.php:767
+#: class-r34nono.php:773
 msgid "Removes WordPress icon and link from the admin bar."
 msgstr "Verwijdert het WordPress-pictogram en de koppeling uit de beheerbalk."
 
-#: class-r34nono.php:772
+#: class-r34nono.php:778
 msgid "Redirect attachment pages to file URL"
 msgstr "Pagina's met bijlagen omleiden naar bestands-URL"
 
-#: class-r34nono.php:773
+#: class-r34nono.php:779
 msgid ""
 "By default, WordPress creates an \"attachment page\" for every file uploaded "
 "to the Media Library. This setting will redirect those pages to the file URL "
@@ -460,16 +463,16 @@ msgstr ""
 "geüpload naar de Mediabibliotheek. Met deze instelling worden die pagina's "
 "omgeleid naar de bestands-URL zelf."
 
-#: class-r34nono.php:775
+#: class-r34nono.php:781
 msgid "Return HTTP 404 error instead of redirecting"
 msgstr "HTTP 404-fout retourneren in plaats van doorsturen"
 
-#: class-r34nono.php:781
+#: class-r34nono.php:787
 msgid "Remove Comments from admin"
 msgstr "Opmerkingen verwijderen uit admin"
 
 #. translators: 1. HTML tag 2. HTML tag 3. HTML tag 4. HTML tag
-#: class-r34nono.php:783
+#: class-r34nono.php:789
 #, php-format
 msgid ""
 "Removes links to Comments in the admin bar and admin sidebar menu. Does not "
@@ -481,11 +484,11 @@ msgstr ""
 "gedaan met de optie %1$sAlle commentaren en trackbacks uitschakelen%2$s "
 "onder het tabblad %3$sHulpprogramma's%4$s hierboven."
 
-#: class-r34nono.php:788
+#: class-r34nono.php:794
 msgid "Remove comments from front end"
 msgstr "Opmerkingen verwijderen uit frontend"
 
-#: class-r34nono.php:789
+#: class-r34nono.php:795
 msgid ""
 "Removes all standard comment output from front-end pages. May not function "
 "properly if theme uses non-standard methods to display comments."
@@ -494,62 +497,62 @@ msgstr ""
 "mogelijk niet goed als het thema niet-standaard methoden gebruikt om "
 "commentaar weer te geven."
 
-#: class-r34nono.php:794
+#: class-r34nono.php:800
 msgid "Remove Dashboard widgets"
 msgstr "Dashboard-widgets verwijderen"
 
-#: class-r34nono.php:795
+#: class-r34nono.php:801
 msgid "Removes the selected widgets from the WordPress admin dashboard."
 msgstr ""
 "Verwijdert de geselecteerde widgets uit het beheerdersdashboard van "
 "WordPress."
 
-#: class-r34nono.php:797
+#: class-r34nono.php:803
 msgid "Activity"
 msgstr "Activiteit"
 
-#: class-r34nono.php:798
+#: class-r34nono.php:804
 msgid "At a Glance"
 msgstr "In een oogopslag"
 
-#: class-r34nono.php:799
+#: class-r34nono.php:805
 msgid "Incoming Links"
 msgstr "Inkomende links"
 
-#: class-r34nono.php:800 class-r34nono.php:923
+#: class-r34nono.php:806 class-r34nono.php:929
 msgid "Plugins"
 msgstr "Plugins"
 
-#: class-r34nono.php:801
+#: class-r34nono.php:807
 msgid "Quick Draft"
 msgstr "Snel Concept"
 
-#: class-r34nono.php:802
+#: class-r34nono.php:808
 msgid "Recent Comments"
 msgstr "Recente reacties"
 
-#: class-r34nono.php:803
+#: class-r34nono.php:809
 msgid "Recent Drafts"
 msgstr "Recente ontwerpen"
 
-#: class-r34nono.php:804
+#: class-r34nono.php:810
 msgid "Site Health"
 msgstr "Site-health"
 
-#: class-r34nono.php:805
+#: class-r34nono.php:811
 msgid "Welcome"
 msgstr "Welkom"
 
-#: class-r34nono.php:806
+#: class-r34nono.php:812
 msgid "WordPress Events and News"
 msgstr "WordPress Evenementen en Nieuws"
 
-#: class-r34nono.php:812
+#: class-r34nono.php:818
 msgid "Remove default block patterns"
 msgstr "Standaard blokpatronen verwijderen"
 
 #. translators: 1. HTML tag 2. HTML tag
-#: class-r34nono.php:814
+#: class-r34nono.php:820
 msgid ""
 "Removes the default block patterns from the block editor, leaving only "
 "custom block patterns defined by your theme."
@@ -557,11 +560,11 @@ msgstr ""
 "Verwijdert de standaard blokpatronen uit de blok-editor, zodat alleen "
 "aangepaste blokpatronen overblijven die door je thema zijn gedefinieerd."
 
-#: class-r34nono.php:819
+#: class-r34nono.php:825
 msgid "Remove duotone SVG filters"
 msgstr "Duotone SVG-filters verwijderen"
 
-#: class-r34nono.php:820
+#: class-r34nono.php:826
 msgid ""
 "Removes hardcoded HTML SVG tags for block editor duotone effects that "
 "normally get loaded on every page for Safari users."
@@ -570,19 +573,19 @@ msgstr ""
 "blokbewerkers die normaal gesproken op elke pagina worden geladen voor "
 "Safari-gebruikers."
 
-#: class-r34nono.php:825
+#: class-r34nono.php:831
 msgid "Remove \"Edit site\" link"
 msgstr "Link \"Site bewerken\" verwijderen"
 
 #. translators: 1. HTML tag 2. HTML tag
-#: class-r34nono.php:827
+#: class-r34nono.php:833
 #, php-format
 msgid ""
 "Removes the full site editing (FSE) link that appears in the admin bar on "
 "sites that use block themes, to avoid accidentally clicking it when "
 "intending to click \"Edit Page/Post,\" but leaves other FSE features in "
-"place. To disallow FSE entirely, select %1$sDisallow full site editing "
-"(FSE)%2$s under \"Admin Features\" instead."
+"place. To disallow FSE entirely, select %1$sDisallow full site editing (FSE)"
+"%2$s under \"Admin Features\" instead."
 msgstr ""
 "Verwijdert de link voor volledige sitebewerking (FSE) die in de beheerbalk "
 "verschijnt op sites die blokkeerthema's gebruiken, om te voorkomen dat u er "
@@ -591,11 +594,11 @@ msgstr ""
 "selecteert u %1$sVolledige sitebewerking (FSE) weigeren%2$s onder "
 "\"Beheerfuncties\"."
 
-#: class-r34nono.php:832
+#: class-r34nono.php:838
 msgid "Remove front end Edit links"
 msgstr "Koppelingen vooraan bewerken verwijderen"
 
-#: class-r34nono.php:833
+#: class-r34nono.php:839
 msgid ""
 "Removes Edit links that appear within the page layout of certain themes for "
 "logged-in users. Does not affect Edit links in the admin bar."
@@ -604,12 +607,12 @@ msgstr ""
 "thema's voor ingelogde gebruikers. Heeft geen invloed op Bewerk-links in de "
 "beheerbalk."
 
-#: class-r34nono.php:838
+#: class-r34nono.php:844
 msgid "Remove global styles (inline CSS)"
 msgstr "Globale stijlen verwijderen (inline CSS)"
 
 #. translators: 1. HTML tag 2. HTML tag
-#: class-r34nono.php:840
+#: class-r34nono.php:846
 #, php-format
 msgid ""
 "Removes inline CSS the Block Editor inserts into the head of every page. "
@@ -620,54 +623,54 @@ msgstr ""
 "pagina. Merk op dat dit niet %1$sall%2$s inline CSS verwijdert; stijlen die "
 "zijn ingevoegd door je thema of plugins zullen nog steeds aanwezig zijn."
 
-#: class-r34nono.php:845
+#: class-r34nono.php:851
 msgid "Remove head tags"
 msgstr "Koptags verwijderen"
 
 #. translators: 1. HTML tag and sample code 2. HTML tag and sample code
-#: class-r34nono.php:847
+#: class-r34nono.php:853
 #, php-format
 msgid "Removes the selected %1$s tags from the %2$s on all front-end pages."
 msgstr ""
 "Verwijdert de geselecteerde %1$s tags van de %2$s op alle front-end pagina's."
 
-#: class-r34nono.php:849
+#: class-r34nono.php:855
 msgid "EditURI/RSD"
 msgstr "EditURI/RSD"
 
-#: class-r34nono.php:850
+#: class-r34nono.php:856
 msgid "oEmbed Discovery Links"
 msgstr "oEmbed Discovery Links"
 
-#: class-r34nono.php:851
+#: class-r34nono.php:857
 msgid "Resource Hints"
 msgstr "Hints voor bronnen"
 
-#: class-r34nono.php:852
+#: class-r34nono.php:858
 msgid "REST API"
 msgstr "REST API"
 
-#: class-r34nono.php:853
+#: class-r34nono.php:859
 msgid "RSS Feeds"
 msgstr "RSS Feeds"
 
-#: class-r34nono.php:854
+#: class-r34nono.php:860
 msgid "WLW Manifest"
 msgstr "WLW Manifest"
 
-#: class-r34nono.php:855
+#: class-r34nono.php:861
 msgid "WP Generator"
 msgstr "WP-generator"
 
-#: class-r34nono.php:856
+#: class-r34nono.php:862
 msgid "WP Shortlink"
 msgstr "WP snelkoppeling"
 
-#: class-r34nono.php:862
+#: class-r34nono.php:868
 msgid "Remove \"Howdy\""
 msgstr "Verwijder \"Howdy\""
 
-#: class-r34nono.php:863
+#: class-r34nono.php:869
 msgid ""
 "Removes \"Howdy\" greeting text (or the corresponding text in other "
 "languages) next to username in admin bar."
@@ -675,12 +678,12 @@ msgstr ""
 "Verwijdert de begroetingstekst \"Howdy\" (of de overeenkomstige tekst in "
 "andere talen) naast de gebruikersnaam in de beheerbalk."
 
-#: class-r34nono.php:868
+#: class-r34nono.php:874
 msgid "Remove Posts from admin"
 msgstr "Berichten verwijderen uit admin"
 
 #. translators: 1. HTML tag 2. HTML tag
-#: class-r34nono.php:870
+#: class-r34nono.php:876
 #, php-format
 msgid ""
 "If you use WordPress as a general-purpose CMS without a blog component, this "
@@ -695,19 +698,19 @@ msgstr ""
 "enige front-end inhoud. Als je een SEO plugin gebruikt, moet je de "
 "instellingen aanpassen om Posts uit te sluiten van je sitemap XML."
 
-#: class-r34nono.php:875
+#: class-r34nono.php:881
 msgid "Remove Widgets block editor"
 msgstr "Widgets-blok-editor verwijderen"
 
-#: class-r34nono.php:876
+#: class-r34nono.php:882
 msgid "Restores the previous default functionality of the Widgets page."
 msgstr "Herstelt de vorige standaardfunctionaliteit van de Widgets-pagina."
 
-#: class-r34nono.php:881
+#: class-r34nono.php:887
 msgid "Remove WP emoji"
 msgstr "WP-emoji verwijderen"
 
-#: class-r34nono.php:882
+#: class-r34nono.php:888
 msgid ""
 "Removes built-in emoji-related WordPress JavaScript code that normally gets "
 "loaded on every page. Also removes emoji tools in the TinyMCE editor."
@@ -716,11 +719,11 @@ msgstr ""
 "normaal gesproken op elke pagina wordt geladen. Verwijdert ook de emoji-"
 "tools in de TinyMCE-editor."
 
-#: class-r34nono.php:887
+#: class-r34nono.php:893
 msgid "Require login"
 msgstr "Aanmelden vereist"
 
-#: class-r34nono.php:888
+#: class-r34nono.php:894
 msgid ""
 "Sends all non-logged-in front end page requests to the login screen. Note: "
 "Does not apply to AJAX, cron, or CLI requests. While not intended to provide "
@@ -733,12 +736,12 @@ msgstr ""
 "om te voorkomen dat onbevoegden de site bekijken tijdens de ontwikkeling van "
 "de site."
 
-#: class-r34nono.php:893
+#: class-r34nono.php:899
 msgid "Disable XML-RPC"
 msgstr "XML-RPC uitschakelen"
 
 #. translators: 1. HTML tag 2. HTML tag 3. HTML tag and filename 4. HTML tag and filename
-#: class-r34nono.php:895
+#: class-r34nono.php:901
 #, php-format
 msgid ""
 "Most WordPress sites do not use XML-RPC, although some plugins (e.g. "
@@ -763,16 +766,16 @@ msgstr ""
 "DDOS-aanval kun je de aanroepen naar %3$s direct blokkeren in het %4$s "
 "bestand van je site."
 
-#: class-r34nono.php:897
+#: class-r34nono.php:903
 msgid "Also kill any incoming XML-RPC request"
 msgstr "Stop ook elk inkomend XML-RPC verzoek"
 
-#: class-r34nono.php:904
+#: class-r34nono.php:910
 msgid "Core upgrade skip new bundled"
 msgstr "Kernupgrade slaat nieuw gebundeld over"
 
 #. translators: 1. HTML tag 2. HTML tag 3. HTML tag 4. HTML tag
-#: class-r34nono.php:906
+#: class-r34nono.php:912
 #, php-format
 msgid ""
 "Skips installing things like new themes that are bundled by default with "
@@ -785,11 +788,11 @@ msgstr ""
 "handmatig worden gedaan door de %1$sCORE_UPGRADE_SKIP_NEW_BUNDLED%2$s "
 "constante toe te voegen in je %3$swp-config.php%4$s bestand."
 
-#: class-r34nono.php:913
+#: class-r34nono.php:919
 msgid "Disallow theme and plugin file editing"
 msgstr "Bewerken van thema- en plugin-bestanden niet toestaan"
 
-#: class-r34nono.php:914
+#: class-r34nono.php:920
 msgid ""
 "Removes the ability for site admins to edit theme and plugin files directly "
 "within WordPress."
@@ -797,11 +800,11 @@ msgstr ""
 "Verwijdert de mogelijkheid voor sitebeheerders om thema- en plugin-bestanden "
 "rechtstreeks binnen WordPress te bewerken."
 
-#: class-r34nono.php:921
+#: class-r34nono.php:927
 msgid "Restrict admin access"
 msgstr "Beperk admin toegang"
 
-#: class-r34nono.php:922
+#: class-r34nono.php:928
 msgid ""
 "If checked, only users with Editor or Administrator role will be able to see "
 "the Jetpack link in the admin sidebar. Note that in some cases this might "

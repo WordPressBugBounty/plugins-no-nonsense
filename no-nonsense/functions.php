@@ -153,18 +153,26 @@ function r34nono_disallow_file_edit() {
 
 function r34nono_disallow_full_site_editing() {
 	add_action('admin_bar_menu', 'r34nono_remove_edit_site', 999, 1);
-	add_action('admin_menu', 'r34nono_disallow_full_site_editing_admin_menu_callback');
+	add_action('admin_menu', 'r34nono_disallow_full_site_editing_admin_menu_callback', 999);
 	add_action('current_screen', 'r34nono_disallow_full_site_editing_current_screen_callback');
 	add_action('customize_controls_head', 'r34nono_disallow_full_site_editing_customize_controls_head_callback');
 }
 
 function r34nono_disallow_full_site_editing_admin_menu_callback() {
+	$options = get_option('r34nono_disallow_full_site_editing_options');
 	remove_submenu_page('themes.php', 'site-editor.php');
+	if (empty($options['allow_patterns'])) {
+		remove_submenu_page('themes.php', 'edit.php?post_type=wp_block');
+		remove_submenu_page('themes.php', 'site-editor.php?path=/patterns');
+	}
 }
 
 function r34nono_disallow_full_site_editing_current_screen_callback() {
 	global $pagenow;
 	if (is_admin() && 'site-editor.php' === $pagenow) {
+		$options = get_option('r34nono_disallow_full_site_editing_options');
+		// @todo Find a way to limit access to Patterns only; get_current_screen() is not the answer!
+		if (!empty($options['allow_patterns'])) { return; }
 		wp_redirect(admin_url('/')); exit;
 	}
 }

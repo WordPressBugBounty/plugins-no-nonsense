@@ -60,6 +60,9 @@ class R34NoNo {
 		),
 		
 		'r34nono_disallow_full_site_editing' => array(
+			'options' => array(
+				'allow_patterns' => '',
+			),
 			'hook_type' => 'action',
 			'hook' => 'init',
 			'priority' => 10,
@@ -709,9 +712,12 @@ class R34NoNo {
 			));
 			
 			$this->settings['r34nono_disallow_full_site_editing'] = array_merge($this->settings['r34nono_disallow_full_site_editing'], array(
-				'title' => __('Disallow full site editing (FSE)', 'no-nonsense'),
+				'title' => __('Disable Site Editor / Full Site Editing (FSE)', 'no-nonsense'),
 				/* translators: 1. HTML tag 2. HTML tag */
 				'description' => sprintf(__('Removes the "Edit site" link in the admin bar, the "Editor" link under "Appearance," and the FSE notice in the Customizer. Also redirects any direct attempts to access the FSE page to the admin dashboard. If this option is active, you do not need to use the %1$sRemove "Edit site" link%2$s option under "Admin Bar."', 'no-nonsense'), '<strong>', '</strong>'),
+				'options' => array(
+					'allow_patterns' => __('Allow access to Patterns (under Appearance menu)', 'no-nonsense'),
+				),
 				'group' => __('Block Editor', 'no-nonsense'),
 			));
 			
