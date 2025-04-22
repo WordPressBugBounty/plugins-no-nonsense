@@ -5,7 +5,7 @@ Tags: remove howdy, remove emoji, remove comments, remove xml-rpc, remove WordPr
 Requires at least: 4.9
 Requires PHP: 7.0.0
 Tested up to: 6.8
-Stable tag: 3.6.3
+Stable tag: 3.6.3.1
 License: GPLv2
 
 The fastest, cleanest way to get rid of the parts of WordPress you don't need.
@@ -25,6 +25,10 @@ After installing the plugin, navigate to **Settings &gt; No Nonsense** to choose
 == Screenshots ==
 
 == Changelog ==
+
+= 3.6.3.1 - 2025.04.22 =
+
+* Modified `r34nono_require_login()` function to treat request URIs beginning with `/wp-json/` as allowed requests even if `wp_is_json_request()` returns false. This is due to an issue observed with another Room 34 plugin (ICS Calendar Pro) where the REST API is being used but the response is (intentionally) not in JSON format.
 
 = 3.6.3 - 2025.04.15 =
 

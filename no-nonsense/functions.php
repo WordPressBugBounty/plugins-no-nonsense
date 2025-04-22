@@ -419,7 +419,14 @@ function r34nono_remove_wp_emoji_from_tinymce($plugins) {
 
 function r34nono_require_login() {
 	// Doing AJAX, cron, CLI or REST; bypass
-	if (wp_doing_ajax() || wp_doing_cron() || (defined('WP_CLI') && WP_CLI) || wp_is_json_request()) { return; }
+	// Added check for /wp-json/ in request URI after observing issue with wp_is_json_request() and JSON requests used by ICS Calendar 
+	if	(
+				wp_doing_ajax() ||
+				wp_doing_cron() ||
+				(defined('WP_CLI') && WP_CLI) ||
+				wp_is_json_request() ||
+				strpos($_SERVER['REQUEST_URI'], '/wp-json/') === 0
+			) { return; }
 	// User is logged in
 	if (is_user_logged_in()) { return; }
 	// We're already on the login screen
