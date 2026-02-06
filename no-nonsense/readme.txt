@@ -4,8 +4,8 @@ Donate link: https://room34.com/payments
 Tags: remove howdy, remove emoji, remove comments, remove xml-rpc, remove WordPress logo
 Requires at least: 4.9
 Requires PHP: 7.0.0
-Tested up to: 6.8
-Stable tag: 3.6.3.1
+Tested up to: 6.9
+Stable tag: 3.6.5
 License: GPLv2
 
 The fastest, cleanest way to get rid of the parts of WordPress you don't need.
@@ -25,6 +25,17 @@ After installing the plugin, navigate to **Settings &gt; No Nonsense** to choose
 == Screenshots ==
 
 == Changelog ==
+
+= 3.6.5 - 2026.01.06 =
+
+* Changed logic for **Auto core update send email only on error** setting. Previously it was sending if the `$type` parameter was not `success` (i.e. allowing both `fail` and `critical`, as well as an empty value). Now this setting only sends if `$type` is equal to `fail`. Added the **Also send "critical" messages** checkbox to revert to the previous functionality.
+* Added **Do not send email on auto plugin/theme update** setting. Works similarly to **Auto core update send email only on error** but applies when the site theme or plugins have been updated. (Note: Unlike for core updates, the associated filter for plugins and themes does not have a `$type` parameter.)
+
+= 3.6.4 - 2025.10.29 =
+
+* Added option to hide Admin Bar on front end for _all_ users, not just non-editors.
+* i18n: Updated translation strings.
+* Bumped *Tested up to* to 6.9.
 
 = 3.6.3.1 - 2025.04.22 =
 

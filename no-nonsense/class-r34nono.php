@@ -20,10 +20,22 @@ class R34NoNo {
 		),
 		
 		'r34nono_auto_core_update_send_email_only_on_error' => array(
+			'options' => array(
+				'send_critical' => '',
+			),
 			'hook_type' => 'filter',
 			'hook' => 'auto_core_update_send_email',
 			'priority' => 10,
 			'pn' => 4,
+			'show_in_admin' => true,
+		),
+		
+		'r34nono_auto_plugin_update_send_email' => array(
+			'hook_type' => 'filter',
+			'hook' => 'auto_plugin_update_send_email',
+			'priority' => 10,
+			'pn' => 4,
+			'cb' => '__return_false',
 			'show_in_admin' => true,
 		),
 		
@@ -683,7 +695,16 @@ class R34NoNo {
 			
 			$this->settings['r34nono_auto_core_update_send_email_only_on_error'] = array_merge($this->settings['r34nono_auto_core_update_send_email_only_on_error'], array(
 				'title' => __('Auto core update send email only on error', 'no-nonsense'),
-				'description' => __('By default, site admins receive a notification email every time WordPress runs auto-updates. Turn this on to only receive emails if there is an error during the update process.', 'no-nonsense'),
+				'description' => __('By default, site admins receive a notification email every time WordPress runs auto-updates to WordPress core. Turn this on to only receive emails if there is an error during the update process.', 'no-nonsense'),
+				'options' => array(
+					'send_critical' => sprintf(__('Also send "critical" messages', 'no-nonsense'), '<em>', '</em>'),
+				),
+				'group' => __('Security and Updates', 'no-nonsense'),
+			));
+			
+			$this->settings['r34nono_auto_plugin_update_send_email'] = array_merge($this->settings['r34nono_auto_plugin_update_send_email'], array(
+				'title' => __('Do not send email on auto plugin/theme update', 'no-nonsense'),
+				'description' => __('By default, site admins receive a notification email every time WordPress runs auto-updates to the theme and plugins. Turn this on disable these emails.', 'no-nonsense'),
 				'group' => __('Security and Updates', 'no-nonsense'),
 			));
 			
@@ -725,6 +746,9 @@ class R34NoNo {
 				'title' => __('Hide admin bar for logged-in non-editors', 'no-nonsense'),
 				/* translators: 1. HTML tag 2. HTML tag */
 				'description' => sprintf(__('Hides the admin bar on front-end pages for logged-in users with no editing capabilities. Admin bar will still display for these users when they access their profile page. %1$sNote:%2$s With this option turned on, you will need to provide another way on the front end of your site for logged-in users to access their profile page and the logout link.', 'no-nonsense'), '<strong>', '</strong>'),
+				'options' => array(
+					'hide_for_all' => sprintf(__('Hide admin bar on front end pages for %1$sall%2$s users', 'no-nonsense'), '<em>', '</em>'),
+				),
 				'group' => __('Admin Bar', 'no-nonsense'),
 			));
 			
@@ -816,8 +840,7 @@ class R34NoNo {
 			
 			$this->settings['r34nono_remove_default_block_patterns'] = array_merge($this->settings['r34nono_remove_default_block_patterns'], array(
 				'title' => __('Remove default block patterns', 'no-nonsense'),
-				/* translators: 1. HTML tag 2. HTML tag */
-				'description' => sprintf(__('Removes the default block patterns from the block editor, leaving only custom block patterns defined by your theme.', 'no-nonsense'), '<strong>', '</strong>'),
+				'description' => __('Removes the default block patterns from the block editor, leaving only custom block patterns defined by your theme.', 'no-nonsense'),
 				'group' => __('Block Editor', 'no-nonsense'),
 			));
 			
