@@ -136,6 +136,12 @@
 		display: inline-block;
 		margin: 0.2rem 1rem 0.2rem 0;
 	}
+	
+	.r34nono table .r34nono-toggle-wrapper {
+		border: 1px solid var(--r34nono-neutral-color-3);
+		border-radius: 6px;
+		padding: 2px;
+	}
 
 	.r34nono table label.r34nono-toggle-off, .r34nono table label.r34nono-toggle-on {
 		display: inline-block;
@@ -150,22 +156,18 @@
 	}
 
 	.r34nono table label.r34nono-toggle-off {
-		border: 1px solid var(--r34nono-neutral-color-3);
-		border-top-left-radius: 4px;
-		border-bottom-left-radius: 4px;
-		border-right: none;
+		border: 2px solid transparent;
+		border-radius: 4px;
 	}
 
 	.r34nono table label.r34nono-toggle-off.selected {
-		background: var(--r34nono-neutral-color-4);
+		background: var(--r34nono-neutral-color-3);
 		font-weight: 700;
 	}
 	
 	.r34nono table label.r34nono-toggle-on {
-		border: 1px solid var(--r34nono-neutral-color-3);
-		border-top-right-radius: 4px;
-		border-bottom-right-radius: 4px;
-		border-left: none;
+		border: 2px solid transparent;
+		border-radius: 4px;
 	}
 
 	.r34nono table label.r34nono-toggle-on.selected {

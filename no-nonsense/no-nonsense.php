@@ -3,7 +3,7 @@
 Plugin Name: No Nonsense
 Plugin URI: https://nononsensewp.com
 Description: The fastest, cleanest way to get rid of the parts of WordPress you don't need.
-Version: 3.6.5
+Version: 3.6.6
 Requires at least: 4.9
 Requires PHP: 7.0
 Author: Room 34 Creative Services, LLC
@@ -14,7 +14,7 @@ Domain Path: /i18n/languages/
 */
 
 /*
-  Copyright 2025 Room 34 Creative Services, LLC (email: info@room34.com)
+  Copyright 2026 Room 34 Creative Services, LLC (email: info@room34.com)
 
 	This program is free software; you can redistribute it and/or modify
 	it under the terms of the GNU General Public License, version 2, as 
@@ -61,16 +61,10 @@ function r34nono_plugins_loaded() {
 add_action('plugins_loaded', 'r34nono_plugins_loaded');
 
 
-// Load text domain for translations
-function r34nono_load_plugin_textdomain() {
-	load_plugin_textdomain('no-nonsense', false, basename(plugin_dir_path(__FILE__)) . '/i18n/languages/');
-}
-add_action('init', 'r34nono_load_plugin_textdomain', 1 - PHP_INT_MAX);
-
-
 // Force loading of embedded translations instead of community translations
 function r34nono_load_textdomain_mofile($mofile, $domain) {
 	if ($domain == 'no-nonsense' && strpos($mofile, WP_LANG_DIR . '/plugins') !== false) {
+		// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
 		$locale = apply_filters('plugin_locale', determine_locale(), $domain);
 		$locales = r34nono_i18n_locales();
 		// Only replace the locales we have translated directly within the plugin

@@ -138,7 +138,7 @@ function r34nono_disable_site_search_admin_head_callback() {
 
 function r34nono_disable_site_search_parse_query_callback($query) {
 	if ($query->is_search && $query->is_main_query()) {
-		wp_redirect(home_url('/'), 301); exit;
+		wp_safe_redirect(home_url('/'), 301); exit;
 	}
 }
 
@@ -152,6 +152,7 @@ function r34nono_disable_update_services() {
 
 function r34nono_disallow_file_edit() {
 	if (!defined('DISALLOW_FILE_EDIT')) {
+		// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedConstantFound
 		define('DISALLOW_FILE_EDIT', true);
 	}
 }
@@ -178,7 +179,7 @@ function r34nono_disallow_full_site_editing_current_screen_callback() {
 		$options = get_option('r34nono_disallow_full_site_editing_options');
 		// @todo Find a way to limit access to Patterns only; get_current_screen() is not the answer!
 		if (!empty($options['allow_patterns'])) { return; }
-		wp_redirect(admin_url('/')); exit;
+		wp_safe_redirect(admin_url('/')); exit;
 	}
 }
 
@@ -250,7 +251,7 @@ function r34nono_redirect_admin_to_homepage_for_logged_in_non_editors() {
 	if (!wp_doing_ajax() && is_admin() && is_user_logged_in() && !current_user_can('edit_posts')) {
 		global $pagenow;
 		$options = get_option('r34nono_redirect_admin_to_homepage_for_logged_in_non_editors_options');
-		if ($pagenow != 'profile.php' || !empty($options['prevent_profile_access'])) { wp_redirect(home_url('/')); exit; }
+		if ($pagenow != 'profile.php' || !empty($options['prevent_profile_access'])) { wp_safe_redirect(home_url('/')); exit; }
 	}
 }
 
@@ -271,7 +272,7 @@ function r34nono_remove_attachment_pages() {
 			status_header(404);
 		}
 		elseif ($q_obj = get_queried_object() && $url = wp_get_attachment_url($q_obj->ID)) {
-			wp_redirect($url, 301); exit;
+			wp_safe_redirect($url, 301); exit;
 		}
 	}
 }
@@ -433,7 +434,10 @@ function r34nono_require_login() {
 				wp_doing_cron() ||
 				(defined('WP_CLI') && WP_CLI) ||
 				wp_is_json_request() ||
-				strpos($_SERVER['REQUEST_URI'], '/wp-json/') === 0
+				(
+					isset($_SERVER['REQUEST_URI']) &&
+					strpos(sanitize_text_field(wp_unslash($_SERVER['REQUEST_URI'])), '/wp-json/') === 0
+				)
 			) { return; }
 	// User is logged in
 	if (is_user_logged_in()) { return; }
@@ -542,10 +546,14 @@ function r34nono_disable_all_comments_and_trackbacks() {
 	$return = $return_1 = $return_2 = false;
 	// Set comments and trackbacks to "closed" on all existing content
 	global $wpdb;
+	// phpcs:disable WordPress.DB.DirectDatabaseQuery.DirectQuery
+	// phpcs:disable WordPress.DB.DirectDatabaseQuery.NoCaching
 	// Note: We do not use $wpdb->prepare() here because there is no variable input in the SQL query
 	$return_1 = $wpdb->query("UPDATE `" . $wpdb->posts . "` SET `comment_status` = 'closed' WHERE `comment_status` = 'open';");
 	$return_2 = $wpdb->query("UPDATE `" . $wpdb->posts . "` SET `ping_status` = 'closed' WHERE `ping_status` = 'open';");
 	$return = ($return_1 && $return_2);
+	// phpcs:enable WordPress.DB.DirectDatabaseQuery.DirectQuery
+	// phpcs:enable WordPress.DB.DirectDatabaseQuery.NoCaching
 	// Update WordPress options for comments and trackbacks on new content
 	update_option('default_comment_status', false);
 	update_option('default_ping_status', false);
@@ -556,7 +564,8 @@ function r34nono_remove_default_tagline() {
 	$return = false;
 	if (
 		get_option('blogdescription') == __('Just another WordPress site', 'no-nonsense') ||
-		get_option('blogdescription') == __('Just another WordPress site') // Note: Deliberately omits text domain to match WordPress core translation!
+		// phpcs:ignore WordPress.WP.I18n.MissingArgDomain
+		get_option('blogdescription') == __('Just another WordPress site') // Deliberately omits text domain to match WordPress core translation!
 	) {
 		if (update_option('blogdescription', '')) { $return = true; }
 	}

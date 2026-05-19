@@ -658,7 +658,7 @@ class R34NoNo {
 		// Add server IP address to the "Server" section
 		$debug_info['wp-server']['fields']['server-ip-address'] = array(
 			'label' => __('Server IP address', 'no-nonsense'),
-			'value' => $_SERVER['SERVER_ADDR'],
+			'value' => (!empty($_SERVER['SERVER_ADDR']) ? sanitize_text_field(wp_unslash($_SERVER['SERVER_ADDR'])) : ''),
 		);
 		
 		return $debug_info;
@@ -747,6 +747,7 @@ class R34NoNo {
 				/* translators: 1. HTML tag 2. HTML tag */
 				'description' => sprintf(__('Hides the admin bar on front-end pages for logged-in users with no editing capabilities. Admin bar will still display for these users when they access their profile page. %1$sNote:%2$s With this option turned on, you will need to provide another way on the front end of your site for logged-in users to access their profile page and the logout link.', 'no-nonsense'), '<strong>', '</strong>'),
 				'options' => array(
+					/* translators: 1. HTML tag 2. HTML tag */
 					'hide_for_all' => sprintf(__('Hide admin bar on front end pages for %1$sall%2$s users', 'no-nonsense'), '<em>', '</em>'),
 				),
 				'group' => __('Admin Bar', 'no-nonsense'),

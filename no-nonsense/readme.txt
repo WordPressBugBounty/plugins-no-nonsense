@@ -3,9 +3,9 @@ Contributors: room34
 Donate link: https://room34.com/payments
 Tags: remove howdy, remove emoji, remove comments, remove xml-rpc, remove WordPress logo
 Requires at least: 4.9
-Requires PHP: 7.0.0
-Tested up to: 6.9
-Stable tag: 3.6.5
+Requires PHP: 7.0
+Tested up to: 7.0
+Stable tag: 3.6.6
 License: GPLv2
 
 The fastest, cleanest way to get rid of the parts of WordPress you don't need.
@@ -25,6 +25,12 @@ After installing the plugin, navigate to **Settings &gt; No Nonsense** to choose
 == Screenshots ==
 
 == Changelog ==
+
+= 3.6.6 - 2026.05.19 =
+
+* CSS tweaks in admin.
+* Miscellaneous refactoring to pass [Plugin Check](https://wordpress.org/plugins/plugin-check/) tests.
+* Bumped *Tested up to* to 7.0.
 
 = 3.6.5 - 2026.01.06 =
 

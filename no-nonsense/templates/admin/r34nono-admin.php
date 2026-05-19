@@ -1,4 +1,6 @@
 <?php
+// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
+
 // Don't load directly
 if (!defined('ABSPATH')) { exit; }
 
@@ -71,7 +73,7 @@ global $r34nono;
 										?>
 										<tr>
 											<td style="white-space: nowrap;">
-												<label for="<?php echo esc_attr($name); ?>_0" class="r34nono-toggle-off<?php if ($current_value == 0) { echo ' selected'; } ?>"><input type="radio" name="<?php echo esc_attr($name); ?>" id="<?php echo esc_attr($name); ?>_0" value="0"<?php if ($current_value == 0) { echo ' checked="checked"'; } ?> />&nbsp;<?php esc_html_e('Off', 'no-nonsense'); ?></label><label for="<?php echo esc_attr($name); ?>_1" class="r34nono-toggle-on<?php if ($current_value == 1) { echo ' selected'; } ?>"><input type="radio" name="<?php echo esc_attr($name); ?>" id="<?php echo esc_attr($name); ?>_1" value="1"<?php if ($current_value == 1) { echo ' checked="checked"'; } ?> />&nbsp;<?php esc_html_e('On', 'no-nonsense'); ?></label>
+												<div class="r34nono-toggle-wrapper"><label for="<?php echo esc_attr($name); ?>_0" class="r34nono-toggle-off<?php if ($current_value == 0) { echo ' selected'; } ?>"><input type="radio" name="<?php echo esc_attr($name); ?>" id="<?php echo esc_attr($name); ?>_0" value="0"<?php if ($current_value == 0) { echo ' checked="checked"'; } ?> />&nbsp;<?php esc_html_e('Off', 'no-nonsense'); ?></label><label for="<?php echo esc_attr($name); ?>_1" class="r34nono-toggle-on<?php if ($current_value == 1) { echo ' selected'; } ?>"><input type="radio" name="<?php echo esc_attr($name); ?>" id="<?php echo esc_attr($name); ?>_1" value="1"<?php if ($current_value == 1) { echo ' checked="checked"'; } ?> />&nbsp;<?php esc_html_e('On', 'no-nonsense'); ?></label></div>
 											</td>
 											<td style="width: 100%;">
 												<strong><?php echo wp_kses_post($item['title']); ?></strong>
@@ -240,8 +242,8 @@ global $r34nono;
 			</div>
 		
 			<p><small>No Nonsense v. <?php echo wp_kses_post(get_option('r34nono_version')); ?><br />
-			<?php esc_html_e('Server IP address:'); ?>
-			<?php echo wp_kses_post($_SERVER['SERVER_ADDR']); ?></small></p>
+			<?php esc_html_e('Server IP address:', 'no-nonsense'); ?>
+			<?php echo wp_kses_post(isset($_SERVER['SERVER_ADDR']) ? sanitize_text_field(wp_unslash($_SERVER['SERVER_ADDR'])) : 'N/A'); ?></small></p>
 		
 		</div>
 	
